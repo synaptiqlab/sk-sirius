@@ -2739,9 +2739,14 @@
       const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
       camera.position.z = 32;
 
-      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      const renderer = new THREE.WebGLRenderer({ 
+        canvas: canvas, 
+        alpha: true, 
+        antialias: window.devicePixelRatio < 2,
+        powerPreference: "high-performance"
+      });
       renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
 
       // Ambient & directional lighting
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
@@ -3041,12 +3046,36 @@
       });
 
       // =========================================================
-      // F. ANIMATION LOOP WITH HIGH-TECH ROTATIONS
+      // F. HIGH-PERFORMANCE SMART ANIMATION LOOP
       // =========================================================
       let clock = new THREE.Clock();
+      let isVisible = true;
+
+      // Smart visibility observer: pause GPU rendering when user scrolls down
+      const heroSection = canvas.closest('section');
+      if ('IntersectionObserver' in window && heroSection) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            isVisible = entry.isIntersecting;
+          });
+        }, { threshold: 0.05 });
+        observer.observe(heroSection);
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) isVisible = false;
+        else if (heroSection) {
+          const rect = heroSection.getBoundingClientRect();
+          isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+        }
+      });
 
       function animate() {
         requestAnimationFrame(animate);
+
+        // Do not consume GPU when out of view (calculator, catalog, contacts, footer)
+        if (!isVisible) return;
+
         const elapsed = clock.getElapsedTime();
 
         // Parallax easing
@@ -3054,10 +3083,6 @@
         mouseY += (targetY - mouseY) * 0.04;
 
         // Optimal position based on screen width:
-        // On widescreen (>1400px), shift right to x = 8.5 and up to y = 1.2
-        // On laptop/desktop (1024-1400px), x = 7.0, y = 1.0
-        // On tablet (768-1024px), x = 3.5, y = 1.5
-        // On mobile (<768px), centered with slight upward offset
         const w = window.innerWidth;
         let basePosX = 0;
         let basePosY = 0;
