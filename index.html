@@ -246,28 +246,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20 gap-4">
         
-        <!-- Logo -->
-        <a href="#main" onclick="switchView('main')" class="group flex items-center gap-3">
-          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sirius-card to-sirius-surface border border-sirius-gold/40 flex items-center justify-center p-2 shadow-gold-glow group-hover:scale-105 transition-all">
-            <!-- Stylized Sirius Star & Welded Railing Emblem -->
-            <svg class="w-full h-full text-sirius-gold" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 2L23 15L36 17L25 24L28 37L19 28L9 36L13 23L3 16L16 15L20 2Z" fill="url(#star-grad)" stroke="#DBBB13" stroke-width="1.5" stroke-linejoin="round"/>
-              <circle cx="20" cy="20" r="3" fill="#FFFFFF"/>
-              <defs>
-                <linearGradient id="star-grad" x1="20" y1="2" x2="20" y2="37" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#DBBB13"/>
-                  <stop offset="1" stop-color="#806B03"/>
-                </linearGradient>
-              </defs>
-            </svg>
+        <!-- Logo (Typography only) -->
+        <a href="#main" onclick="switchView('main')" class="group flex flex-col justify-center">
+          <div class="text-xl sm:text-2xl font-extrabold tracking-tight font-title group-hover:opacity-90 transition-opacity">
+            СК <span class="text-sirius-gold text-transparent bg-clip-text bg-gradient-to-r from-sirius-gold via-sirius-goldLight to-amber-500 drop-shadow">СИРИУС</span>
           </div>
-          <div>
-            <div class="text-xl sm:text-2xl font-extrabold tracking-tight font-title">
-              СК <span class="text-sirius-gold text-transparent bg-clip-text bg-gradient-to-r from-sirius-gold via-sirius-goldLight to-amber-500 drop-shadow">СИРИУС</span>
-            </div>
-            <div class="text-[10px] tracking-[0.2em] uppercase text-slate-400 font-mono -mt-1">
-              Нержавеющая сталь &bull; С 2014 г.
-            </div>
+          <div class="text-[10px] tracking-[0.2em] uppercase text-slate-400 font-mono -mt-0.5">
+            Нержавеющая сталь &bull; С 2014 г.
           </div>
         </a>
 
