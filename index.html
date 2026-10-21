@@ -1,0 +1,3136 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>СК Сириус | Ограждения, перила, поручни из нержавеющей стали и пандусы в Красноярске</title>
+  <meta name="description" content="Производство и монтаж ограждений, поручней и перил из нержавеющей стали и металла. Пандусы, аппарели и оборудование для МГН по ГОСТ и СП. От замера до монтажа. Гарантия 7 лет.">
+  <meta name="keywords" content="перила красноярск, ограждения из нержавеющей стали, поручни для пандусов, пандусы для инвалидов, СК Сириус, лестничные ограждения, оборудование МГН, AISI 304, AISI 201">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="СК Сириус — Ограждения и перила из нержавеющей стали">
+  <meta property="og:description" content="Изготовление и профессиональный монтаж ограждений, перил, пандусов и оборудования для маломобильных групп. Работаем с 2014 года. Гарантия 7 лет.">
+  <meta property="og:image" content="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/d85ae1d3-2ea9-477d-bf2d-7a977e05943f/d85ae1d3-2ea9-477d-bf2d-7a977e05943f-2061312.jpeg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" sizes="32x32" href="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/e1c6bc3d-5657-4753-9837-37ae6d04fb87/e1c6bc3d-5657-4753-9837-37ae6d04fb87-14968694.jpeg">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Three.js for Immersive 3D Steel Constellation & Lattice -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            sirius: {
+              gold: '#DBBB13',
+              goldLight: '#F5DC4C',
+              goldDark: '#B2970C',
+              glow: 'rgba(219, 187, 19, 0.4)',
+              dark: '#07090E',
+              card: '#0F131D',
+              surface: '#161C2A',
+              border: 'rgba(255, 255, 255, 0.08)',
+              steel: '#94A3B8',
+              steelLight: '#E2E8F0',
+            }
+          },
+          fontFamily: {
+            title: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace'],
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px rgba(219, 187, 19, 0.25)',
+            'gold-lg': '0 0 45px rgba(219, 187, 19, 0.35)',
+            'steel-card': '0 20px 40px -15px rgba(0, 0, 0, 0.7)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07090E;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #252D3D;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #DBBB13;
+    }
+
+    /* Steel Sheen & Shimmer */
+    .steel-sheen {
+      position: relative;
+      overflow: hidden;
+    }
+    .steel-sheen::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 35%,
+        rgba(255, 255, 255, 0.06) 45%,
+        rgba(219, 187, 19, 0.12) 50%,
+        rgba(255, 255, 255, 0.06) 55%,
+        transparent 65%
+      );
+      transform: rotate(30deg);
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
+    .steel-sheen:hover::after {
+      opacity: 1;
+      animation: sheen 1.4s ease forwards;
+    }
+    @keyframes sheen {
+      0% { transform: translateY(-100%) rotate(30deg); }
+      100% { transform: translateY(100%) rotate(30deg); }
+    }
+
+    /* Grid blueprint overlay */
+    .blueprint-bg {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+
+    /* Radial gradient glows */
+    .gold-radial {
+      background: radial-gradient(circle at center, rgba(219, 187, 19, 0.15) 0%, transparent 70%);
+    }
+
+    /* Pulse dot */
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+    }
+    .animate-pulse-dot {
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+
+    /* View transitions */
+    .view-content {
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .view-hidden {
+      display: none !important;
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    /* Success checkmark drawing animations */
+    @keyframes check-circle {
+      0% { stroke-dashoffset: 283; transform: rotate(-90deg); }
+      100% { stroke-dashoffset: 0; transform: rotate(0deg); }
+    }
+    @keyframes check-mark {
+      0% { stroke-dashoffset: 48; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .anim-check-circle {
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      animation: check-circle 0.8s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+      transform-origin: center;
+    }
+    .anim-check-mark {
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: check-mark 0.5s 0.65s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+    @keyframes badge-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(219, 187, 19, 0.2), inset 0 0 15px rgba(219, 187, 19, 0.1); }
+      50% { box-shadow: 0 0 35px rgba(219, 187, 19, 0.4), inset 0 0 25px rgba(219, 187, 19, 0.2); }
+    }
+    .anim-badge-glow {
+      animation: badge-glow 2.5s infinite ease-in-out;
+    }
+    /* Futuristic Constellation HUD Animations */
+    @keyframes hud-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes hud-reverse-spin {
+      0% { transform: rotate(360deg); }
+      100% { transform: rotate(0deg); }
+    }
+    @keyframes hud-radar-sweep {
+      0% { opacity: 0.3; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 0.3; transform: scale(0.9); }
+    }
+    .anim-hud-ring-1 {
+      animation: hud-spin 18s linear infinite;
+      transform-origin: center;
+    }
+    .anim-hud-ring-2 {
+      animation: hud-reverse-spin 12s linear infinite;
+      transform-origin: center;
+    }
+    .anim-radar-sweep {
+      animation: hud-radar-sweep 2.5s ease-in-out infinite;
+    }
+    @keyframes laser-draw {
+      0% { stroke-dashoffset: 75; opacity: 0; }
+      20% { opacity: 1; }
+      100% { stroke-dashoffset: 0; opacity: 1; }
+    }
+    .anim-laser-check {
+      stroke-dasharray: 75;
+      stroke-dashoffset: 75;
+      animation: laser-draw 0.7s 0.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+
+  </style>
+</head>
+<body class="bg-sirius-dark text-slate-100 font-sans antialiased selection:bg-sirius-gold selection:text-sirius-dark overflow-x-hidden blueprint-bg">
+
+  <!-- ========================================================================= -->
+  <!-- TOP ANNOUNCEMENT BAR & QUICK CONTACTS -->
+  <!-- ========================================================================= -->
+  <aside aria-label="Срочные контакты и адрес" class="border-b border-white/5 bg-[#0A0D15]/90 backdrop-blur-md text-xs py-2 px-4 sm:px-8 z-40 relative">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
+      <div class="flex items-center gap-4 text-slate-400">
+        <span class="inline-flex items-center gap-1.5 text-sirius-steelLight">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-dot"></span>
+          Производство работает в штатном режиме
+        </span>
+        <span class="hidden md:inline text-white/20">•</span>
+        <span class="hidden md:inline-flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-sirius-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          г. Красноярск, пр. Металлургов 2В, бокс №16
+        </span>
+      </div>
+
+      <div class="flex items-center gap-5 ml-auto">
+        <a href="mailto:sk-sirius24@yandex.ru" class="hover:text-sirius-gold transition-colors inline-flex items-center gap-1.5 text-slate-300">
+          <svg class="w-3.5 h-3.5 text-sirius-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          sk-sirius24@yandex.ru
+        </a>
+        <a href="tel:+73912151812" class="font-mono font-bold text-sirius-gold hover:text-sirius-goldLight transition-colors flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-sirius-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          +7 (391) 215-18-12
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN HEADER WITH VIEW SWITCHER -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 bg-[#07090E]/85 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+        
+        <!-- Logo -->
+        <a href="#main" onclick="switchView('main')" class="group flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sirius-card to-sirius-surface border border-sirius-gold/40 flex items-center justify-center p-2 shadow-gold-glow group-hover:scale-105 transition-all">
+            <!-- Stylized Sirius Star & Welded Railing Emblem -->
+            <svg class="w-full h-full text-sirius-gold" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 2L23 15L36 17L25 24L28 37L19 28L9 36L13 23L3 16L16 15L20 2Z" fill="url(#star-grad)" stroke="#DBBB13" stroke-width="1.5" stroke-linejoin="round"/>
+              <circle cx="20" cy="20" r="3" fill="#FFFFFF"/>
+              <defs>
+                <linearGradient id="star-grad" x1="20" y1="2" x2="20" y2="37" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#DBBB13"/>
+                  <stop offset="1" stop-color="#806B03"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-extrabold tracking-tight font-title">
+              СК <span class="text-sirius-gold text-transparent bg-clip-text bg-gradient-to-r from-sirius-gold via-sirius-goldLight to-amber-500 drop-shadow">СИРИУС</span>
+            </div>
+            <div class="text-[10px] tracking-[0.2em] uppercase text-slate-400 font-mono -mt-1">
+              Нержавеющая сталь &bull; С 2014 г.
+            </div>
+          </div>
+        </a>
+
+        <!-- VIEW SWITCHER (Seamless SPA Switcher) -->
+        <nav class="hidden md:flex items-center p-1.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-lg">
+          <button 
+            id="tab-btn-main" 
+            onclick="switchView('main')"
+            class="px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-sirius-gold to-amber-500 text-sirius-dark shadow-gold-glow font-title">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            Главная
+          </button>
+          
+          <button 
+            id="tab-btn-catalog" 
+            onclick="switchView('catalog')"
+            class="px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 text-slate-300 hover:text-white font-title">
+            <svg class="w-4 h-4 text-sirius-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            Каталог продукции
+            <span class="ml-1 text-[11px] px-2 py-0.5 rounded-full bg-white/10 text-sirius-goldLight font-mono">16</span>
+          </button>
+
+          <button 
+            onclick="switchView('main', 'calculator')"
+            class="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-1.5 text-slate-300 hover:text-sirius-gold">
+            <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            Калькулятор
+          </button>
+
+          <button 
+            onclick="switchView('main', 'contacts')"
+            class="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 text-slate-300 hover:text-sirius-gold">
+            Контакты
+          </button>
+        </nav>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-3">
+          <button 
+            onclick="openOrderModal('Бесплатный выезд на замер')"
+            class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider bg-transparent border-2 border-sirius-gold text-sirius-gold hover:bg-sirius-gold hover:text-sirius-dark transition-all duration-300 shadow-gold-glow">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            Вызов замерщика 0 ₽
+          </button>
+
+          <!-- Mobile Toggle Menu Button -->
+          <button 
+            id="mobile-menu-btn"
+            onclick="toggleMobileMenu()" 
+            class="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-sirius-gold">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0B0F19] px-4 pt-3 pb-6 space-y-2">
+      <button 
+        onclick="switchView('main'); toggleMobileMenu()" 
+        class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-sirius-gold bg-sirius-gold/10 flex items-center justify-between">
+        <span>🏢 Главная страница</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <button 
+        onclick="switchView('catalog'); toggleMobileMenu()" 
+        class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-white/5 flex items-center justify-between">
+        <span>📦 Полный каталог продукции (16 моделей)</span>
+        <span class="text-xs px-2 py-0.5 rounded bg-sirius-gold/20 text-sirius-gold font-mono">16</span>
+      </button>
+      <button 
+        onclick="switchView('main', 'calculator'); toggleMobileMenu()" 
+        class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-white/5 flex items-center justify-between">
+        <span>📐 Онлайн калькулятор сметы</span>
+      </button>
+      <button 
+        onclick="switchView('main', 'contacts'); toggleMobileMenu()" 
+        class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-white/5 flex items-center justify-between">
+        <span>📍 Контакты и производство</span>
+      </button>
+      <div class="pt-2">
+        <button 
+          onclick="openOrderModal('Выезд на замер'); toggleMobileMenu()" 
+          class="w-full py-3 rounded-xl text-center font-bold bg-sirius-gold text-sirius-dark uppercase tracking-wider text-sm shadow-gold-glow">
+          Вызвать инженера на замер (Бесплатно)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 1: MAIN PAGE (ГЛАВНАЯ СТРАНИЦА) -->
+  <!-- ========================================================================= -->
+  <main id="view-main" class="view-content">
+
+    <!-- HERO SECTION WITH IMMERSIVE 3D STEEL CONSTELLATION -->
+    <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden pt-8 pb-16">
+      
+      <!-- Three.js 3D WebGL Canvas for Sirius Constellation & Steel Railing Lattice -->
+      <canvas id="immersive-canvas" class="absolute inset-0 w-full h-full pointer-events-auto z-0"></canvas>
+
+      <!-- Background Ambient Overlays & Grain -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#07090E]/60 via-[#07090E]/80 to-[#07090E] pointer-events-none z-10"></div>
+      <div class="absolute top-1/3 right-10 lg:right-28 -translate-y-1/2 w-[700px] h-[550px] gold-radial pointer-events-none z-10 opacity-70"></div>
+
+      <!-- Hero Content -->
+      <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-3xl space-y-7 text-center lg:text-left relative z-20">
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-sirius-card/80 border border-sirius-gold/40 backdrop-blur-xl shadow-gold-glow">
+            <span class="w-2.5 h-2.5 rounded-full bg-sirius-gold animate-ping"></span>
+            <span class="text-xs sm:text-sm font-semibold tracking-wide text-sirius-goldLight font-title">
+              Собственное производство в Красноярске с 2014 года
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-title leading-[1.12]">
+            Ограждения, перила и поручни <br class="hidden sm:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-sirius-steelLight">
+              из нержавеющей стали
+            </span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-base sm:text-lg lg:text-xl text-slate-300 font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Проектирование, высокоточная резка и профессиональный монтаж по ГОСТ и СП. Пандусы, аппарели и специализированное оборудование для МГН (маломобильных групп).
+          </p>
+
+          <!-- Key Features Chips -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 max-w-2xl">
+            <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md text-center hover:border-sirius-gold/40 transition-colors">
+              <div class="text-sirius-gold font-mono font-bold text-xl sm:text-2xl">7 лет</div>
+              <div class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold mt-0.5">Гарантии</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md text-center hover:border-sirius-gold/40 transition-colors">
+              <div class="text-sirius-gold font-mono font-bold text-xl sm:text-2xl">0 ₽</div>
+              <div class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold mt-0.5">Замер на объекте</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md text-center hover:border-sirius-gold/40 transition-colors">
+              <div class="text-sirius-gold font-mono font-bold text-xl sm:text-2xl">10+ лет</div>
+              <div class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold mt-0.5">Опыт с 2014 г.</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md text-center hover:border-sirius-gold/40 transition-colors">
+              <div class="text-sirius-gold font-mono font-bold text-xl sm:text-2xl">ГОСТ</div>
+              <div class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold mt-0.5">И СП нормы</div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <button 
+              onclick="openOrderModal('Главный экран — Заявка на расчет и замер')"
+              class="w-full sm:w-auto px-8 py-4 rounded-xl font-title font-bold text-base tracking-wide bg-gradient-to-r from-sirius-gold via-amber-400 to-sirius-goldDark text-sirius-dark hover:brightness-110 shadow-gold-glow transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <svg class="w-5 h-5 text-sirius-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Оставить заявку на замер
+            </button>
+
+            <button 
+              onclick="switchView('catalog')"
+              class="w-full sm:w-auto px-7 py-4 rounded-xl font-title font-bold text-base tracking-wide bg-white/5 hover:bg-white/10 text-white border border-white/15 transition-all duration-300 flex items-center justify-center gap-2 group">
+              Смотреть каталог продукции
+              <svg class="w-5 h-5 text-sirius-gold group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+
+          <!-- Interactive 3D Note with glowing beacon -->
+          <div class="text-xs text-slate-400 flex items-center justify-center lg:justify-start gap-2 pt-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-sirius-gold shadow-gold-glow animate-pulse"></span>
+            <span>Интерактивное 3D-созвездие «Сириус»: двигайте курсор мыши или вращайте пальцем на экране</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- POPULAR PRODUCTS SECTION -->
+    <!-- ========================================================================= -->
+    <section class="py-20 border-t border-white/5 bg-[#0A0E17]/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <div class="text-sirius-gold font-mono text-xs uppercase tracking-[0.2em] mb-2 font-bold">Флагманы производства</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-title tracking-tight">
+              Популярные товары и конструкции
+            </h2>
+          </div>
+          <button 
+            onclick="switchView('catalog')"
+            class="inline-flex items-center gap-2 text-sm font-bold text-sirius-gold hover:text-sirius-goldLight transition-colors font-title">
+            <span>Открыть весь каталог продукции (16 позиций)</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Hit 1: Эконом -->
+          <div class="rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen">
+            <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/eaaea907-662a-45ad-b431-ceed6d20df51/eaaea907-662a-45ad-b431-ceed6d20df51-3684436.jpeg', 'Ограждение для лестницы Эконом')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/eaaea907-662a-45ad-b431-ceed6d20df51/eaaea907-662a-45ad-b431-ceed6d20df51-3684436.jpeg" 
+                alt="Ограждение для лестницы Эконом"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-sirius-gold text-sirius-dark font-mono">
+                Хит продаж
+              </span>
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-xs text-white bg-black/70 px-3 py-1.5 rounded-full flex items-center gap-1.5 backdrop-blur-sm">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                  Увеличить фото
+                </span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">
+                  Ограждение лестницы "Эконом"
+                </h3>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Прямой поручень 42 мм, 2 ригеля 16 мм, стойки 42 мм. Нержавеющая сталь AISI 201.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                  <div class="text-lg font-mono font-bold text-sirius-gold">от 5 600 ₽</div>
+                </div>
+                <button 
+                  onclick="openOrderModal('Ограждение лестницы Эконом (от 5 600 ₽)')"
+                  class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">
+                  Заказать
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hit 2: Стандарт -->
+          <div class="rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen">
+            <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/5b224dd4-ac57-4252-a234-dc6b88f824c2/5b224dd4-ac57-4252-a234-dc6b88f824c2-3684445.jpeg', 'Ограждение для лестницы Стандарт')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/5b224dd4-ac57-4252-a234-dc6b88f824c2/5b224dd4-ac57-4252-a234-dc6b88f824c2-3684445.jpeg" 
+                alt="Ограждение для лестницы Стандарт"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-sky-500/80 text-white font-mono backdrop-blur-sm">
+                Выбор клиентов
+              </span>
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-xs text-white bg-black/70 px-3 py-1.5 rounded-full flex items-center gap-1.5 backdrop-blur-sm">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                  Увеличить фото
+                </span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">
+                  Ограждение лестницы "Стандарт"
+                </h3>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Ограждение с плавным поворотом поручня и 3 ригелями. Идеально для жилых домов и БЦ.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                  <div class="text-lg font-mono font-bold text-sirius-gold">от 6 400 ₽</div>
+                </div>
+                <button 
+                  onclick="openOrderModal('Ограждение лестницы Стандарт (от 6 400 ₽)')"
+                  class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">
+                  Заказать
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hit 3: Пандус откидной -->
+          <div class="rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen">
+            <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/6e76d79d-e23c-4075-a06c-f6d3151af23e/6e76d79d-e23c-4075-a06c-f6d3151af23e-3684444.jpeg', 'Пандус для колясок откидной')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/6e76d79d-e23c-4075-a06c-f6d3151af23e/6e76d79d-e23c-4075-a06c-f6d3151af23e-3684444.jpeg" 
+                alt="Пандус для колясок откидной"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-500/90 text-white font-mono backdrop-blur-sm">
+                Для подъездов
+              </span>
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-xs text-white bg-black/70 px-3 py-1.5 rounded-full flex items-center gap-1.5 backdrop-blur-sm">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                  Увеличить фото
+                </span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">
+                  Пандус для колясок откидной
+                </h3>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Компактное решение для лестничных маршей. Сталь оцинкованная / алюминий.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] text-slate-500 uppercase">Цена за комплект</div>
+                  <div class="text-lg font-mono font-bold text-sirius-gold">20 400 ₽</div>
+                </div>
+                <button 
+                  onclick="openOrderModal('Пандус для колясок откидной (20 400 ₽)')"
+                  class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">
+                  Заказать
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hit 4: Поручень для пандуса -->
+          <div class="rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen">
+            <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/a4b55bf1-cdc4-472f-848b-5e4542d020c1/a4b55bf1-cdc4-472f-848b-5e4542d020c1-3684447.jpeg', 'Поручень для пандуса')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/a4b55bf1-cdc4-472f-848b-5e4542d020c1/a4b55bf1-cdc4-472f-848b-5e4542d020c1-3684447.jpeg" 
+                alt="Поручень для пандуса"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-purple-500/80 text-white font-mono backdrop-blur-sm">
+                Доступная среда
+              </span>
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-xs text-white bg-black/70 px-3 py-1.5 rounded-full flex items-center gap-1.5 backdrop-blur-sm">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                  Увеличить фото
+                </span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">
+                  Поручень для пандуса (двойной)
+                </h3>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Двойной поручень на высоте 700 и 900 мм. Полное соответствие нормативам МГН и СП.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                  <div class="text-lg font-mono font-bold text-sirius-gold">от 6 400 ₽</div>
+                </div>
+                <button 
+                  onclick="openOrderModal('Поручень для пандуса двойной (от 6 400 ₽)')"
+                  class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">
+                  Заказать
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- ABOUT COMPANY SECTION -->
+    <!-- ========================================================================= -->
+    <section class="py-24 relative overflow-hidden bg-[#07090E]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Image with stats frame -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-steel-card group">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/a3485864-4e9e-471c-bede-f4d97c8a92ab/a3485864-4e9e-471c-bede-f4d97c8a92ab-3684726.jpeg" 
+                alt="Производство СК Сириус Красноярск" 
+                class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6">
+                <div class="inline-block px-3 py-1 rounded-md bg-sirius-gold text-sirius-dark font-mono font-bold text-xs uppercase mb-2">
+                  Производственная база
+                </div>
+                <div class="text-lg font-title font-bold text-white">
+                  Красноярск, пр. Металлургов 2В
+                </div>
+                <div class="text-xs text-slate-400">
+                  Собственный цех металлообработки, аргоновой сварки и финишной полировки
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Badge -->
+            <div class="absolute -bottom-6 -right-6 hidden sm:block p-4 rounded-2xl bg-sirius-card border border-sirius-gold/40 shadow-gold-glow backdrop-blur-xl max-w-[210px]">
+              <div class="text-2xl font-mono font-black text-sirius-gold">100% ГОСТ</div>
+              <div class="text-[11px] text-slate-300 font-sans mt-0.5">Строгий контроль качества сварных швов и геометрии</div>
+            </div>
+          </div>
+
+          <!-- Text content -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="text-sirius-gold font-mono text-xs uppercase tracking-[0.2em] font-bold">О компании</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-white leading-tight">
+              Мы — производственная компания с полным циклом металлообработки
+            </h2>
+
+            <p class="text-base text-slate-300 leading-relaxed font-light">
+              <strong class="text-white font-semibold">«СК Сириус»</strong> — специализированное предприятие, реализующее проекты любой сложности: от типовых ограждений для жилых подъездов до дизайнерских архитектурных конструкций и сертифицированных пандусов для социальных объектов.
+            </p>
+
+            <div class="space-y-3 pt-2">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-lg bg-sirius-gold/15 border border-sirius-gold/30 flex items-center justify-center text-sirius-gold shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-sm text-slate-300">
+                  <strong class="text-white">Изготовление и монтаж</strong> лестничных ограждений, перил и пристенных поручней из нержавеющей стали AISI 201 и AISI 304.
+                </span>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-lg bg-sirius-gold/15 border border-sirius-gold/30 flex items-center justify-center text-sirius-gold shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-sm text-slate-300">
+                  <strong class="text-white">Производство пандусов и аппарелей</strong> всех конфигураций (стационарные, складные, откидные) с нескользящим решетчатым настилом.
+                </span>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-lg bg-sirius-gold/15 border border-sirius-gold/30 flex items-center justify-center text-sirius-gold shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-sm text-slate-300">
+                  <strong class="text-white">Оборудование для МГН</strong>: пристенные, угловые и откидные поручни для санузлов, ванных и входных групп по программе «Доступная среда».
+                </span>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-lg bg-sirius-gold/15 border border-sirius-gold/30 flex items-center justify-center text-sirius-gold shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-sm text-slate-300">
+                  <strong class="text-white">Нестандартные металлоконструкции</strong> на заказ по индивидуальным чертежам и размерам заказчика.
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-6">
+              <div>
+                <div class="text-sm font-semibold text-white">Работаем с 2014 года на объектах Красноярска</div>
+                <div class="text-xs text-slate-400 mt-0.5">Более 1 400 успешно сданных объектов и благодарных заказчиков</div>
+              </div>
+              <button 
+                onclick="openOrderModal('О компании — Вызов инженера')"
+                class="px-5 py-2.5 rounded-xl bg-sirius-gold text-sirius-dark font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all font-title shrink-0">
+                Консультация инженера
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- INTERACTIVE COST CALCULATOR SECTION -->
+    <!-- ========================================================================= -->
+    <section id="calculator" class="py-24 bg-[#0A0D15] border-t border-b border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="text-sirius-gold font-mono text-xs uppercase tracking-[0.2em] font-bold mb-2">Онлайн калькулятор</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-white">
+            Рассчитайте предварительную смету за 30 секунд
+          </h2>
+          <p class="text-sm sm:text-base text-slate-400 mt-3">
+            Выберите тип конструкции, длину и параметры стали — система автоматически рассчитает стоимость с учетом монтажа и фурнитуры.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          <!-- Controls (7 cols) -->
+          <div class="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-sirius-card border border-white/10 shadow-steel-card space-y-6 flex flex-col justify-between h-full">
+            
+            <div class="space-y-6">
+              <!-- Category selector -->
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
+                  1. Выберите категорию конструкции:
+                </label>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="calc-category-group">
+                  <button 
+                    type="button" 
+                    data-cat="railings"
+                    onclick="setCalcCategory('railings')"
+                    class="calc-cat-btn active p-3 rounded-xl border border-sirius-gold bg-sirius-gold/15 text-sirius-gold font-semibold text-xs text-center transition-all">
+                    Лестничные ограждения
+                  </button>
+                  <button 
+                    type="button" 
+                    data-cat="ramphands"
+                    onclick="setCalcCategory('ramphands')"
+                    class="calc-cat-btn p-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 font-semibold text-xs text-center hover:border-white/20 transition-all">
+                    Поручни пандуса
+                  </button>
+                  <button 
+                    type="button" 
+                    data-cat="ramps"
+                    onclick="setCalcCategory('ramps')"
+                    class="calc-cat-btn p-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 font-semibold text-xs text-center hover:border-white/20 transition-all">
+                    Пандусы и аппарели
+                  </button>
+                  <button 
+                    type="button" 
+                    data-cat="mgn"
+                    onclick="setCalcCategory('mgn')"
+                    class="calc-cat-btn p-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 font-semibold text-xs text-center hover:border-white/20 transition-all">
+                    Поручни МГН
+                  </button>
+                </div>
+              </div>
+
+              <!-- Model selector inside category -->
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
+                  2. Модель изделия:
+                </label>
+                <select 
+                  id="calc-model-select" 
+                  onchange="recalculateCost()"
+                  class="w-full px-4 py-3 rounded-xl bg-sirius-surface border border-white/15 text-white font-title text-sm focus:border-sirius-gold focus:outline-none transition-colors">
+                  <!-- populated by JS -->
+                </select>
+              </div>
+
+              <!-- Length Slider -->
+              <div id="calc-length-container">
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-mono uppercase tracking-wider text-slate-400">
+                    3. Длина / объем:
+                  </label>
+                  <span class="font-mono text-base font-bold text-sirius-gold">
+                    <span id="calc-length-val">10</span> <span id="calc-unit-label">м.п.</span>
+                  </span>
+                </div>
+                <input 
+                  type="range" 
+                  id="calc-length-slider" 
+                  min="1" 
+                  max="50" 
+                  value="10" 
+                  step="1"
+                  oninput="updateCalcSlider(this.value)"
+                  class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-sirius-gold">
+                <div class="flex justify-between text-[11px] text-slate-500 font-mono mt-1">
+                  <span>1 м</span>
+                  <span>15 м</span>
+                  <span>30 м</span>
+                  <span>50+ м</span>
+                </div>
+              </div>
+
+              <!-- Steel Grade Selector -->
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
+                  4. Марка нержавеющей стали:
+                </label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <label class="relative flex items-start gap-3 p-3.5 rounded-xl border border-white/10 bg-white/[0.02] cursor-pointer hover:border-sirius-gold/40 transition-colors">
+                    <input type="radio" name="calc-steel" value="201" checked onchange="recalculateCost()" class="mt-1 text-sirius-gold accent-sirius-gold">
+                    <div>
+                      <div class="text-xs font-bold text-white">AISI 201 (Интерьер)</div>
+                      <div class="text-[11px] text-slate-400">Для сухих отапливаемых помещений, подъездов, ТЦ</div>
+                    </div>
+                  </label>
+                  <label class="relative flex items-start gap-3 p-3.5 rounded-xl border border-white/10 bg-white/[0.02] cursor-pointer hover:border-sirius-gold/40 transition-colors">
+                    <input type="radio" name="calc-steel" value="304" onchange="recalculateCost()" class="mt-1 text-sirius-gold accent-sirius-gold">
+                    <div>
+                      <div class="text-xs font-bold text-white">AISI 304 (Улица / Влага)</div>
+                      <div class="text-[11px] text-slate-400">Повышенная коррозионная стойкость к осадкам и реагентам</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Extra Add-ons -->
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
+                  5. Дополнительные опции:
+                </label>
+                <div class="space-y-2">
+                  <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
+                    <input type="checkbox" id="calc-opt-turns" checked onchange="recalculateCost()" class="rounded bg-slate-800 border-white/20 text-sirius-gold accent-sirius-gold">
+                    <span>Повороты и замыкания поручня на поворотных площадках</span>
+                  </label>
+                  <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
+                    <input type="checkbox" id="calc-opt-install" checked onchange="recalculateCost()" class="rounded bg-slate-800 border-white/20 text-sirius-gold accent-sirius-gold">
+                    <span>Монтаж на объекте опытной бригадой СК Сириус (под ключ)</span>
+                  </label>
+                  <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
+                    <input type="checkbox" id="calc-opt-delivery" checked onchange="recalculateCost()" class="rounded bg-slate-800 border-white/20 text-sirius-gold accent-sirius-gold">
+                    <span>Доставка спецтранспортом по Красноярску (0 ₽ при заказе от 40 000 ₽)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Total Result Box (5 cols) -->
+          <div class="lg:col-span-5 p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-sirius-surface to-sirius-card border-2 border-sirius-gold/30 shadow-gold-glow relative flex flex-col justify-between h-full">
+            
+            <div class="space-y-6">
+              <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                <div>
+                  <span class="text-xs font-mono uppercase tracking-wider text-sirius-gold">Предварительный расчет</span>
+                  <h3 class="text-lg font-bold font-title text-white" id="calc-summary-title">Ограждение "Стандарт"</h3>
+                </div>
+                <span class="w-8 h-8 rounded-full bg-sirius-gold/20 text-sirius-gold flex items-center justify-center font-bold text-xs">
+                  ✓
+                </span>
+              </div>
+
+              <!-- Breakdown list -->
+              <div class="space-y-3.5 text-xs text-slate-300">
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-slate-400">Объем / Метраж:</span>
+                  <span class="font-mono font-semibold text-white" id="calc-summary-meters">10 м.п.</span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-slate-400">Базовая ставка за м.п.:</span>
+                  <span class="font-mono font-semibold text-white" id="calc-summary-rate">6 400 ₽</span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-slate-400">Марка стали:</span>
+                  <span class="font-mono font-semibold text-sirius-gold" id="calc-summary-steel">AISI 201</span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-slate-400">Монтаж и сборка:</span>
+                  <span class="font-mono font-semibold text-emerald-400">Включены в расчет</span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-slate-400">Выезд на замер:</span>
+                  <span class="font-mono font-semibold text-emerald-400 uppercase">Бесплатно (0 ₽)</span>
+                </div>
+              </div>
+
+              <!-- Total Price Display -->
+              <div class="border-t border-white/10 text-center bg-black/30 p-5 rounded-2xl">
+                <div class="text-xs text-slate-400 uppercase tracking-widest font-mono">Ориентировочная стоимость:</div>
+                <div class="text-3xl sm:text-4xl font-extrabold font-mono text-sirius-gold my-2" id="calc-total-price">
+                  64 000 ₽
+                </div>
+                <div class="text-[11px] text-slate-400">
+                  Точная стоимость фиксируется в договоре после бесплатного замера
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom action & guarantee -->
+            <div class="space-y-3 pt-6">
+              <!-- Submit calculation button -->
+              <button 
+                onclick="submitCalculatedOrder()"
+                class="w-full py-4 rounded-xl font-title font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-sirius-gold to-amber-500 text-sirius-dark hover:brightness-110 shadow-gold-glow transition-all">
+                Зафиксировать цену и заказать замер
+              </button>
+
+              <!-- Guarantee & Contract Note -->
+              <div class="text-center">
+                <span class="inline-flex items-center gap-2 text-xs text-slate-400">
+                  <svg class="w-4 h-4 text-sirius-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                  <span>Фиксированная цена в договоре &bull; Гарантия 7 лет</span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- WORKFLOW STEPS: КАК МЫ РАБОТАЕМ -->
+    <!-- ========================================================================= -->
+    <section class="py-24 bg-[#07090E] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="text-sirius-gold font-mono text-xs uppercase tracking-[0.2em] font-bold mb-2">Прозрачный регламент</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-white">
+            Как мы работаем: от заявки до гарантии
+          </h2>
+          <p class="text-sm sm:text-base text-slate-400 mt-3">
+            Четкие этапы и слаженная работа собственного штата специалистов без посредников.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          
+          <!-- Step 1 -->
+          <div class="p-6 rounded-2xl bg-sirius-card border border-white/10 relative group hover:border-sirius-gold/40 transition-colors">
+            <div class="w-12 h-12 rounded-xl bg-sirius-gold/15 border border-sirius-gold/30 flex items-center justify-center font-mono font-black text-xl text-sirius-gold mb-5">
+              01
+            </div>
+            <h3 class="font-title font-bold text-lg text-white mb-2">Бесплатный замер</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Наш ведущий инженер-технолог оперативно приезжает к вам на объект в Красноярске или крае, проводит детальную консультацию и снимает точные миллиметровые замеры.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="p-6 rounded-2xl bg-sirius-card border border-white/10 relative group hover:border-sirius-gold/40 transition-colors">
+            <div class="w-12 h-12 rounded-xl bg-sirius-gold/15 border border-sirius-gold/30 flex items-center justify-center font-mono font-black text-xl text-sirius-gold mb-5">
+              02
+            </div>
+            <h3 class="font-title font-bold text-lg text-white mb-2">Проект и смета</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Разрабатываем рабочий проект будущего ограждения или пандуса, при необходимости создаем 3D-макет и согласовываем все нюансы. Фиксируем итоговую неизменную стоимость в договоре.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="p-6 rounded-2xl bg-sirius-card border border-white/10 relative group hover:border-sirius-gold/40 transition-colors">
+            <div class="w-12 h-12 rounded-xl bg-sirius-gold/15 border border-sirius-gold/30 flex items-center justify-center font-mono font-black text-xl text-sirius-gold mb-5">
+              03
+            </div>
+            <h3 class="font-title font-bold text-lg text-white mb-2">Монтаж за 2-3 дня</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              В течение нескольких дней производим изделия на базе, доставляем материалы на объект и осуществляем чистый аккуратный монтаж с аргонодуговой сваркой и полировкой узлов.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="p-6 rounded-2xl bg-sirius-card border border-white/10 relative group hover:border-sirius-gold/40 transition-colors">
+            <div class="w-12 h-12 rounded-xl bg-sirius-gold/15 border border-sirius-gold/30 flex items-center justify-center font-mono font-black text-xl text-sirius-gold mb-5">
+              04
+            </div>
+            <h3 class="font-title font-bold text-lg text-white mb-2">Гарантия 7 лет</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Предоставляем официальную расширенную гарантию 7 лет на все изготовленные и смонтированные нами ограждения, поручни и конструкции из металла. Подписываем акт сдачи.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PORTFOLIO: НАМ ДОВЕРЯЮТ (REAL CLIENTS & OBJECTS) -->
+    <!-- ========================================================================= -->
+    <section class="py-24 bg-[#0A0E17]/90 border-t border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+          <div>
+            <div class="text-sirius-gold font-mono text-xs uppercase tracking-[0.2em] font-bold mb-2">Портфолио проектов</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-white">
+              Нам доверяют лидеры региона
+            </h2>
+            <p class="text-sm text-slate-400 mt-2">Реализованные объекты в образовательных, культурных и деловых центрах</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-400">Более 1400 объектов с 2014 года</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Client 1 -->
+          <div class="group rounded-3xl overflow-hidden bg-sirius-card border border-white/10 hover:border-sirius-gold/40 transition-all duration-300 shadow-steel-card">
+            <div class="aspect-[4/3] overflow-hidden relative cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/8b5c2257-080a-4939-876f-b5d421b9a783/8b5c2257-080a-4939-876f-b5d421b9a783-2058138.jpeg', 'МБОУ Гимназия №164, г. Зеленогорск')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/8b5c2257-080a-4939-876f-b5d421b9a783/8b5c2257-080a-4939-876f-b5d421b9a783-2058138.jpeg" 
+                alt="МБОУ Гимназия №164, г. Зеленогорск"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-sirius-gold/90 text-sirius-dark font-mono font-bold">Зеленогорск</span>
+                <span class="text-white/80">Ограждения лестниц</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-title font-bold text-lg text-white">МБОУ Гимназия №164</h3>
+              <p class="text-xs text-slate-400 mt-1">г. Зеленогорск &bull; Комплекс перил и поручней для образовательного учреждения по нормам безопасности детей.</p>
+            </div>
+          </div>
+
+          <!-- Client 2 -->
+          <div class="group rounded-3xl overflow-hidden bg-sirius-card border border-white/10 hover:border-sirius-gold/40 transition-all duration-300 shadow-steel-card">
+            <div class="aspect-[4/3] overflow-hidden relative cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/8012209c-bd26-42e1-ad33-98e55e8871ff/8012209c-bd26-42e1-ad33-98e55e8871ff-3771693.jpeg', 'Фитнес-клуб MAXIMUM, г. Железногорск')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/8012209c-bd26-42e1-ad33-98e55e8871ff/8012209c-bd26-42e1-ad33-98e55e8871ff-3771693.jpeg" 
+                alt="Фитнес-клуб MAXIMUM, г. Железногорск"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-sirius-gold/90 text-sirius-dark font-mono font-bold">Железногорск</span>
+                <span class="text-white/80">Интерьерный хайтек</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-title font-bold text-lg text-white">Фитнес-клуб "MAXIMUM"</h3>
+              <p class="text-xs text-slate-400 mt-1">г. Железногорск &bull; Спортивный комплекс, дизайнерские зеркальные ограждения из нержавеющей стали.</p>
+            </div>
+          </div>
+
+          <!-- Client 3 -->
+          <div class="group rounded-3xl overflow-hidden bg-sirius-card border border-white/10 hover:border-sirius-gold/40 transition-all duration-300 shadow-steel-card">
+            <div class="aspect-[4/3] overflow-hidden relative cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/2fee4b83-1a98-45f6-8948-f908154d8809/2fee4b83-1a98-45f6-8948-f908154d8809-2058126.jpeg', 'Красноярский музыкальный театр')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/2fee4b83-1a98-45f6-8948-f908154d8809/2fee4b83-1a98-45f6-8948-f908154d8809-2058126.jpeg" 
+                alt="Красноярский музыкальный театр"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-sirius-gold/90 text-sirius-dark font-mono font-bold">Красноярск</span>
+                <span class="text-white/80">Культурный объект</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-title font-bold text-lg text-white">Красноярский музыкальный театр</h3>
+              <p class="text-xs text-slate-400 mt-1">г. Красноярск &bull; Общественные зоны театра, ограждения парадных лестниц и входных групп.</p>
+            </div>
+          </div>
+
+          <!-- Client 4 -->
+          <div class="group rounded-3xl overflow-hidden bg-sirius-card border border-white/10 hover:border-sirius-gold/40 transition-all duration-300 shadow-steel-card">
+            <div class="aspect-[4/3] overflow-hidden relative cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/74f98636-77ba-40c0-86c6-84679d04bc4f/74f98636-77ba-40c0-86c6-84679d04bc4f-3771685.jpeg', 'МБОУ СОШ № 3, г. Бородино')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/74f98636-77ba-40c0-86c6-84679d04bc4f/74f98636-77ba-40c0-86c6-84679d04bc4f-3771685.jpeg" 
+                alt="МБОУ СОШ № 3, г. Бородино"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-sirius-gold/90 text-sirius-dark font-mono font-bold">Бородино</span>
+                <span class="text-white/80">Школьные лестницы</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-title font-bold text-lg text-white">МБОУ СОШ № 3</h3>
+              <p class="text-xs text-slate-400 mt-1">г. Бородино &bull; Ограждения маршей и пандусы с безопасным шагом ригелей.</p>
+            </div>
+          </div>
+
+          <!-- Client 5 -->
+          <div class="group rounded-3xl overflow-hidden bg-sirius-card border border-white/10 hover:border-sirius-gold/40 transition-all duration-300 shadow-steel-card">
+            <div class="aspect-[4/3] overflow-hidden relative cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/908b8a6b-3a05-4943-8797-7af6e1b44083/908b8a6b-3a05-4943-8797-7af6e1b44083-3771690.jpeg', 'Компания Экологический сервис')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/908b8a6b-3a05-4943-8797-7af6e1b44083/908b8a6b-3a05-4943-8797-7af6e1b44083-3771690.jpeg" 
+                alt="Компания Экологический сервис, г. Красноярск"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-sirius-gold/90 text-sirius-dark font-mono font-bold">Красноярск</span>
+                <span class="text-white/80">Офисное здание</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-title font-bold text-lg text-white">ООО "Экологический сервис"</h3>
+              <p class="text-xs text-slate-400 mt-1">г. Красноярск &bull; Входные группы, уличные пандусы и офисные лестничные перила.</p>
+            </div>
+          </div>
+
+          <!-- Client 6 -->
+          <div class="group rounded-3xl overflow-hidden bg-sirius-card border border-white/10 hover:border-sirius-gold/40 transition-all duration-300 shadow-steel-card">
+            <div class="aspect-[4/3] overflow-hidden relative cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/f18767c2-2739-4a76-a850-201826dc6846/f18767c2-2739-4a76-a850-201826dc6846-2058116.jpeg', 'Бизнес-центр Европа')">
+              <img 
+                src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/f18767c2-2739-4a76-a850-201826dc6846/f18767c2-2739-4a76-a850-201826dc6846-2058116.jpeg" 
+                alt="Бизнес-центр Европа, г. Красноярск"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-sirius-gold/90 text-sirius-dark font-mono font-bold">Красноярск</span>
+                <span class="text-white/80">Деловой центр</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-title font-bold text-lg text-white">Бизнес-центр "Европа"</h3>
+              <p class="text-xs text-slate-400 mt-1">г. Красноярск &bull; Премиальные лестничные пролеты с высокополированной нержавеющей сталью.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- CTA: ВЫЕЗД НА ЗАМЕР БЕСПЛАТНО -->
+    <!-- ========================================================================= -->
+    <section class="py-20 relative overflow-hidden">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/984a9118-de31-4c8e-b52b-07b3be5e78ac/984a9118-de31-4c8e-b52b-07b3be5e78ac-2057201.jpeg" 
+          alt="Выезд инженера СК Сириус на замер бесплатно" 
+          class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-[#07090E]/85 backdrop-blur-md"></div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+          Специальное предложение компании
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-black font-title tracking-tight text-white leading-tight">
+          Выезд инженера на замеры — <span class="text-emerald-400">БЕСПЛАТНО</span>!
+        </h2>
+
+        <p class="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+          Закажите бесплатный выезд нашего специалиста на объект в Красноярске для точных замеров, подбора образцов стали и детальной консультации.
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button 
+            onclick="openOrderModal('Выезд на замеры БЕСПЛАТНО (Баннер)')"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl font-title font-bold text-sm uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-lg shadow-emerald-500/30 transition-all flex items-center justify-center gap-2">
+            <svg class="w-5 h-5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Заказать бесплатный выезд
+          </button>
+          
+          <a 
+            href="tel:+73912151812"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl font-title font-bold text-sm uppercase tracking-wider bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all flex items-center justify-center gap-2">
+            <svg class="w-5 h-5 text-sirius-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            +7 (391) 215-18-12
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 2: FULL CATALOG & PRICES (КАТАЛОГ ВСЕЙ ПРОДУКЦИИ) -->
+  <!-- ========================================================================= -->
+  <section id="view-catalog" class="view-content view-hidden py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Catalog Header -->
+      <div class="border-b border-white/10 pb-8 mb-10">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div>
+            <div class="flex items-center gap-2 text-sirius-gold font-mono text-xs uppercase tracking-[0.2em] font-bold mb-2">
+              <span>Каталог продукции</span>
+              <span>&bull;</span>
+              <span>16 моделей</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold font-title tracking-tight text-white">
+              Ограждения, перила и пандусы
+            </h1>
+            <p class="text-sm text-slate-400 mt-2 max-w-2xl">
+              Все изделия изготавливаются на собственной базе по ГОСТ из сертифицированной нержавеющей стали AISI 201 / AISI 304.
+            </p>
+          </div>
+
+          <!-- Price Download button -->
+          <div class="shrink-0 flex flex-col sm:flex-row gap-3">
+            <button 
+              onclick="openOrderModal('Каталог — Запрос коммерческого предложения')"
+              class="px-5 py-3 rounded-xl bg-sirius-gold text-sirius-dark font-bold text-xs font-title uppercase tracking-wider hover:brightness-110 transition-all">
+              Запросить КП
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Chips & Search Bar -->
+        <div class="mt-8 pt-6 border-t border-white/5 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          
+          <!-- Category Filter Buttons -->
+          <div class="flex flex-wrap items-center gap-2" id="catalog-filter-tabs">
+            <button 
+              onclick="filterCatalog('all', this)"
+              class="cat-filter-btn active px-4 py-2 rounded-xl text-xs font-title font-bold bg-sirius-gold text-sirius-dark transition-all">
+              Все позиции (16)
+            </button>
+            <button 
+              onclick="filterCatalog('stairs', this)"
+              class="cat-filter-btn px-4 py-2 rounded-xl text-xs font-title font-semibold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-all">
+              Ограждения лестниц
+            </button>
+            <button 
+              onclick="filterCatalog('ramp-rails', this)"
+              class="cat-filter-btn px-4 py-2 rounded-xl text-xs font-title font-semibold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-all">
+              Поручни для пандусов
+            </button>
+            <button 
+              onclick="filterCatalog('ramps', this)"
+              class="cat-filter-btn px-4 py-2 rounded-xl text-xs font-title font-semibold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-all">
+              Пандусы и аппарели
+            </button>
+            <button 
+              onclick="filterCatalog('mgn', this)"
+              class="cat-filter-btn px-4 py-2 rounded-xl text-xs font-title font-semibold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-all">
+              Поручни для МГН
+            </button>
+          </div>
+
+          <!-- Search input -->
+          <div class="relative w-full lg:w-72">
+            <input 
+              type="text" 
+              id="catalog-search"
+              oninput="searchCatalog(this.value)"
+              placeholder="Поиск по названию или стали..." 
+              class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sirius-gold transition-colors">
+            <svg class="w-4 h-4 text-slate-500 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PRODUCTS GRID (ALL 16 PRODUCTS) -->
+      <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        <!-- ================= CATEGORY 1: ОГРАЖДЕНИЯ ДЛЯ ЛЕСТНИЦ ================= -->
+        
+        <!-- P1: Ограждение Эконом -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="stairs" data-title="ограждение эконом лестницы 2 ригеля aisi 201">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/556f549e-9de3-446b-a0e1-769d9b6e976e/556f549e-9de3-446b-a0e1-769d9b6e976e-3560607.jpeg', 'Ограждение Эконом')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/556f549e-9de3-446b-a0e1-769d9b6e976e/556f549e-9de3-446b-a0e1-769d9b6e976e-3560607.jpeg" alt="Ограждение Эконом" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-sirius-gold text-sirius-dark font-mono font-bold text-[10px]">Лестницы</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Ограждение "Эконом"</h3>
+              <p class="text-xs text-slate-400 mt-1">Ограждение с прямым поручнем и 2-мя ригелями</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Высота:</span> 900 мм</li>
+                <li><span class="text-slate-400">Заполнение:</span> 2 ригеля (16 мм)</li>
+                <li><span class="text-slate-400">Поручень / Стойка:</span> Ø42 мм</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 201</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 5 600 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Ограждение Эконом (от 5 600 ₽/м.п.)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P2: Ограждение Стандарт -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="stairs" data-title="ограждение стандарт лестницы 3 ригеля aisi 201">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/0aa717a1-cf4a-40d4-87de-22961bd5fec9/0aa717a1-cf4a-40d4-87de-22961bd5fec9-3560608.jpeg', 'Ограждение Стандарт')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/0aa717a1-cf4a-40d4-87de-22961bd5fec9/0aa717a1-cf4a-40d4-87de-22961bd5fec9-3560608.jpeg" alt="Ограждение Стандарт" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-sky-500 text-white font-mono font-bold text-[10px]">Популярное</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Ограждение "Стандарт"</h3>
+              <p class="text-xs text-slate-400 mt-1">Ограждение с поворотом поручня и 3-мя ригелями</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Высота:</span> 900 мм</li>
+                <li><span class="text-slate-400">Заполнение:</span> 3 ригеля (16 мм)</li>
+                <li><span class="text-slate-400">Поворот поручня:</span> Да</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 201</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 6 400 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Ограждение Стандарт (от 6 400 ₽/м.п.)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P3: Ограждение Премиум -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="stairs" data-title="ограждение премиум люкс поворот ригелей aisi 201 304">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/df48366d-c6e6-49b9-8ac9-95fbb2929e36/df48366d-c6e6-49b9-8ac9-95fbb2929e36-3560609.jpeg', 'Ограждение Премиум')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/df48366d-c6e6-49b9-8ac9-95fbb2929e36/df48366d-c6e6-49b9-8ac9-95fbb2929e36-3560609.jpeg" alt="Ограждение Премиум" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-mono font-bold text-[10px]">Премиум</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Ограждение "Премиум"</h3>
+              <p class="text-xs text-slate-400 mt-1">С поворотом поручня, ригелей и более дорогой фурнитурой</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Высота:</span> 900 мм</li>
+                <li><span class="text-slate-400">Заполнение:</span> 3-4 ригеля с поворотами</li>
+                <li><span class="text-slate-400">Фурнитура:</span> Литые полированные соединители</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 201 / AISI 304</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 7 200 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Ограждение Премиум (от 7 200 ₽/м.п.)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= CATEGORY 2: ПОРУЧНИ ДЛЯ ПАНДУСОВ ================= -->
+        
+        <!-- P4: Поручни Лайт -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="ramp-rails" data-title="поручни лайт двойной поручень пандус без колесоотбойника">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/d4ce2ad6-6d94-489b-98c4-60eddf041e33/d4ce2ad6-6d94-489b-98c4-60eddf041e33-3560641.jpeg', 'Поручни Лайт')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/d4ce2ad6-6d94-489b-98c4-60eddf041e33/d4ce2ad6-6d94-489b-98c4-60eddf041e33-3560641.jpeg" alt="Поручни Лайт" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-purple-500 text-white font-mono font-bold text-[10px]">Пандус</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Поручни "Лайт"</h3>
+              <p class="text-xs text-slate-400 mt-1">Упрощенный вариант двойных поручней для пандуса</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Двойной поручень:</span> 700 и 900 мм</li>
+                <li><span class="text-slate-400">Колесоотбойник:</span> Нет</li>
+                <li><span class="text-slate-400">Поручень / Стойка:</span> Ø42 мм</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 201 / AISI 304</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 6 400 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Поручни Лайт для пандуса (от 6 400 ₽/м.п.)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P5: Поручни Норма -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="ramp-rails" data-title="поручни норма пандус сп колесоотбойник aisi 304">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/182d8130-cb63-44e1-a427-22642530bfeb/182d8130-cb63-44e1-a427-22642530bfeb-3560642.jpeg', 'Поручни Норма')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/182d8130-cb63-44e1-a427-22642530bfeb/182d8130-cb63-44e1-a427-22642530bfeb-3560642.jpeg" alt="Поручни Норма" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-mono font-bold text-[10px]">СП нормы</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Поручни "Норма"</h3>
+              <p class="text-xs text-slate-400 mt-1">Полностью соответствует сводам правил (СП)</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Двойной поручень:</span> 700 и 900 мм</li>
+                <li><span class="text-slate-400">Колесоотбойник:</span> 1 (16 мм)</li>
+                <li><span class="text-slate-400">Поручень / Стойка:</span> Ø42 мм</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 201 / AISI 304</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 7 200 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Поручни Норма для пандуса (от 7 200 ₽/м.п.)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P6: Поручни ГОСТ -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="ramp-rails" data-title="поручни гост мгн пандус 2 колесоотбойника aisi 304">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/1f525157-a47e-442e-acfa-b187cc478471/1f525157-a47e-442e-acfa-b187cc478471-3560643.jpeg', 'Поручни ГОСТ')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/1f525157-a47e-442e-acfa-b187cc478471/1f525157-a47e-442e-acfa-b187cc478471-3560643.jpeg" alt="Поручни ГОСТ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-sirius-gold text-sirius-dark font-mono font-bold text-[10px]">ГОСТ + СП</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Поручни "ГОСТ"</h3>
+              <p class="text-xs text-slate-400 mt-1">Строгое соответствие ГОСТ Р 51261 и СП 59.13330</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Двойной поручень:</span> 700 и 900 мм</li>
+                <li><span class="text-slate-400">Колесоотбойник:</span> 1 или 2 (16 мм)</li>
+                <li><span class="text-slate-400">Поручень / Стойка:</span> Ø42 мм</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 201 / AISI 304</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 8 000 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Поручни ГОСТ для пандуса (от 8 000 ₽/м.п.)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= CATEGORY 3: ПАНДУСЫ И АППАРЕЛИ ================= -->
+        
+        <!-- P7: Аппарели стационарные -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="ramps" data-title="аппарели стационарные коляски сталь оцинкованная алюминий">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/69142797-d9e1-4f1f-b265-e2b644b47e8e/69142797-d9e1-4f1f-b265-e2b644b47e8e-3684584.jpeg', 'Аппарели стационарные')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/69142797-d9e1-4f1f-b265-e2b644b47e8e/69142797-d9e1-4f1f-b265-e2b644b47e8e-3684584.jpeg" alt="Аппарели стационарные" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-blue-500 text-white font-mono font-bold text-[10px]">Аппарели</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Аппарели стационарные</h3>
+              <p class="text-xs text-slate-400 mt-1">Для детских колясок, тележек и легкой колесной техники</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Материал:</span> Сталь оцинк. / алюминий</li>
+                <li><span class="text-slate-400">Каркас:</span> Профиль алюминиевый</li>
+                <li><span class="text-slate-400">Размеры:</span> Длина до 2500 мм, ширина 700 мм</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена до 2500 мм</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 12 600 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Аппарели стационарные (от 12 600 ₽)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P8: Аппарели откидные -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="ramps" data-title="аппарели откидные подъезд лестница коляски">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/830b32a6-8173-472f-9b8a-d67fd77ba8ab/830b32a6-8173-472f-9b8a-d67fd77ba8ab-3684583.jpeg', 'Аппарели откидные')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/830b32a6-8173-472f-9b8a-d67fd77ba8ab/830b32a6-8173-472f-9b8a-d67fd77ba8ab-3684583.jpeg" alt="Аппарели откидные" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-mono font-bold text-[10px]">Хит подъездов</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Аппарели откидные</h3>
+              <p class="text-xs text-slate-400 mt-1">Откидной механизм к стене, не загромождает марш</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Материал:</span> Сталь оцинк. / алюминий</li>
+                <li><span class="text-slate-400">Каркас:</span> Профиль алюминиевый</li>
+                <li><span class="text-slate-400">Размеры:</span> Длина до 2500 мм, ширина 700 мм</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена до 2500 мм</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 20 400 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Аппарели откидные (от 20 400 ₽)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P9: Аппарели складные -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="ramps" data-title="аппарели складные компактные коляски пандус">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/b0a3f07d-1fd0-4e9e-ac91-3d2512fd0a33/b0a3f07d-1fd0-4e9e-ac91-3d2512fd0a33-3684587.jpeg', 'Аппарели складные')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/b0a3f07d-1fd0-4e9e-ac91-3d2512fd0a33/b0a3f07d-1fd0-4e9e-ac91-3d2512fd0a33-3684587.jpeg" alt="Аппарели складные" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-indigo-500 text-white font-mono font-bold text-[10px]">Компакт</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Аппарели складные</h3>
+              <p class="text-xs text-slate-400 mt-1">Складываются пополам, еще более компактные</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Материал:</span> Сталь оцинк. / алюминий</li>
+                <li><span class="text-slate-400">Каркас:</span> Профиль алюминиевый</li>
+                <li><span class="text-slate-400">Размеры:</span> Длина до 2500 мм, ширина 700 мм</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена до 2500 мм</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 23 800 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Аппарели складные (от 23 800 ₽)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P10: Пандус стационарный металлический -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="ramps" data-title="пандус стационарный металлический решетчатый настил пвл 408 труба 60х60">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/a9a0048c-6140-4189-97bc-cdbc04a5def1/a9a0048c-6140-4189-97bc-cdbc04a5def1-3684617.jpeg', 'Пандус стационарный металлический')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/a9a0048c-6140-4189-97bc-cdbc04a5def1/a9a0048c-6140-4189-97bc-cdbc04a5def1-3684617.jpeg" alt="Пандус стационарный металлический" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-sirius-gold text-sirius-dark font-mono font-bold text-[10px]">Капитальный</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Пандус стационарный металл</h3>
+              <p class="text-xs text-slate-400 mt-1">Капитальный пандус с просечно-вытяжным настилом</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Каркас:</span> Профильная труба 60х60, 40х40</li>
+                <li><span class="text-slate-400">Настил:</span> Просечно-вытяжной лист ПВЛ 408</li>
+                <li><span class="text-slate-400">Антикоррозия:</span> Грунт + порошковая покраска</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 18 600 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Пандус стационарный металлический (от 18 600 ₽/м.п.)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P11: Пандус стационарный с поручнями из нерж.стали -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="ramps" data-title="пандус стационарный с поручнями нержавеющая сталь пвл 408 aisi 304">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/fca8fe0c-7ae2-4c02-b433-b1b0db038ce6/fca8fe0c-7ae2-4c02-b433-b1b0db038ce6-3685158.jpeg', 'Пандус стационарный с поручнями')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/fca8fe0c-7ae2-4c02-b433-b1b0db038ce6/fca8fe0c-7ae2-4c02-b433-b1b0db038ce6-3685158.jpeg" alt="Пандус стационарный с поручнями из нержавеющей стали" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-mono font-bold text-[10px]">Комплекс</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Пандус с поручнями из нерж.</h3>
+              <p class="text-xs text-slate-400 mt-1">Металлокаркас, сетка ПВЛ и двойные поручни из нерж. стали</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Каркас:</span> Проф. труба 60х60, 40х40</li>
+                <li><span class="text-slate-400">Настил:</span> Сетка просечно-вытяжная 408</li>
+                <li><span class="text-slate-400">Перила:</span> Двойной поручень из AISI 304</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за 1 м.п.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">от 24 200 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Пандус стационарный с поручнями нерж (от 24 200 ₽/м.п.)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= CATEGORY 4: ОБОРУДОВАНИЕ ДЛЯ МГН ================= -->
+        
+        <!-- P12: Поручень пристенный прямой -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="mgn" data-title="поручень пристенный прямой мгн aisi 304 500 1000 мм">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/49e7e23e-69a2-4b2e-8c1a-0759141686be/49e7e23e-69a2-4b2e-8c1a-0759141686be-3560613.jpeg', 'Поручень пристенный прямой')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/49e7e23e-69a2-4b2e-8c1a-0759141686be/49e7e23e-69a2-4b2e-8c1a-0759141686be-3560613.jpeg" alt="Поручень пристенный прямой" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-purple-500 text-white font-mono font-bold text-[10px]">МГН</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Поручень пристенный прямой</h3>
+              <p class="text-xs text-slate-400 mt-1">Для коридоров, холлов и входных зон</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Длина:</span> 500 - 1000 мм</li>
+                <li><span class="text-slate-400">Диаметр:</span> Ø32 / Ø38 мм</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 304 нержавеющая</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за шт.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">6 700 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Поручень пристенный прямой (6 700 ₽)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P13: Поручень пристенный Г-образный -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="mgn" data-title="поручень пристенный г образный вертикальный мгн aisi 304">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/c40a86b5-ee83-4f6c-a0c8-6c5b57ee853e/c40a86b5-ee83-4f6c-a0c8-6c5b57ee853e-3560614.jpeg', 'Поручень Г-образный')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/c40a86b5-ee83-4f6c-a0c8-6c5b57ee853e/c40a86b5-ee83-4f6c-a0c8-6c5b57ee853e-3560614.jpeg" alt="Поручень Г-образный" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-purple-500 text-white font-mono font-bold text-[10px]">МГН</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Поручень Г-образный</h3>
+              <p class="text-xs text-slate-400 mt-1">Вертикальный пристенный поручень для опоры</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Размеры:</span> 500х500 мм</li>
+                <li><span class="text-slate-400">Диаметр:</span> Ø32 / Ø38 мм</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 304 нержавеющая</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за шт.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">7 800 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Поручень Г-образный вертикальный (7 800 ₽)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P14: Поручень пристенный угловой (внутренний / наружный) -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="mgn" data-title="поручень пристенный угловой внутренний наружный мгн 500х500 aisi 304">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/8f665651-7233-4eb1-848b-ef95fdb49310/8f665651-7233-4eb1-848b-ef95fdb49310-3560615.jpeg', 'Поручень пристенный угловой')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/8f665651-7233-4eb1-848b-ef95fdb49310/8f665651-7233-4eb1-848b-ef95fdb49310-3560615.jpeg" alt="Поручень пристенный угловой" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-purple-500 text-white font-mono font-bold text-[10px]">МГН Угловой</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Поручень угловой (внутр./наруж.)</h3>
+              <p class="text-xs text-slate-400 mt-1">Обеспечивает непрерывный хват в углах помещений</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Размеры:</span> 500х500 мм</li>
+                <li><span class="text-slate-400">Диаметр:</span> Ø32 / Ø38 мм</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 304 нержавеющая</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за шт.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">8 600 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Поручень пристенный угловой (8 600 ₽)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P15: Поручень для раковины (настенный / с упором в пол) -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="mgn" data-title="поручень для раковины настенный с упором в пол мгн aisi 304">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/26ee72eb-2c44-4e24-8177-b0f127fc7f4e/26ee72eb-2c44-4e24-8177-b0f127fc7f4e-3560625.jpeg', 'Поручень для раковины')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/26ee72eb-2c44-4e24-8177-b0f127fc7f4e/26ee72eb-2c44-4e24-8177-b0f127fc7f4e-3560625.jpeg" alt="Поручень для раковины настенный" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-purple-500 text-white font-mono font-bold text-[10px]">МГН Санузел</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Поручень для раковины</h3>
+              <p class="text-xs text-slate-400 mt-1">Крепление к стене или с дополнительным упором в пол</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Размеры:</span> По габаритам раковины</li>
+                <li><span class="text-slate-400">Диаметр:</span> Ø32 / Ø38 мм</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 304 нержавеющая</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за шт.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">8 600 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Поручень для раковины (8 600 ₽)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P16: Поручень для унитаза откидной / Г-образный -->
+        <div class="product-item rounded-2xl bg-sirius-card border border-white/10 overflow-hidden flex flex-col hover:border-sirius-gold/50 transition-all duration-300 shadow-steel-card group steel-sheen" data-cat="mgn" data-title="поручень для унитаза откидной г образный стена пол мгн 800х200 aisi 304">
+          <div class="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer" onclick="openLightbox('https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/47c00755-a0ce-4719-af42-2fa45d20a47a/47c00755-a0ce-4719-af42-2fa45d20a47a-3560644.jpeg', 'Поручень для унитаза откидной')">
+            <img src="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/47c00755-a0ce-4719-af42-2fa45d20a47a/47c00755-a0ce-4719-af42-2fa45d20a47a-3560644.jpeg" alt="Поручень для унитаза откидной" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-purple-500 text-white font-mono font-bold text-[10px]">МГН Санузел</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-title font-bold text-base text-white group-hover:text-sirius-gold transition-colors">Поручень для унитаза откидной</h3>
+              <p class="text-xs text-slate-400 mt-1">Откидной настенный или стационарный Г-образный (стена+пол)</p>
+              <ul class="text-[11px] text-slate-300 space-y-1 mt-3 pt-3 border-t border-white/5">
+                <li><span class="text-slate-400">Размеры:</span> 800х200 мм</li>
+                <li><span class="text-slate-400">Диаметр:</span> Ø32 / Ø38 мм</li>
+                <li><span class="text-slate-400">Сталь:</span> AISI 304 нержавеющая</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <div class="text-[10px] text-slate-500 uppercase">Цена за шт.</div>
+                <div class="text-lg font-mono font-bold text-sirius-gold">8 600 ₽</div>
+              </div>
+              <button onclick="openOrderModal('Поручень для унитаза откидной (8 600 ₽)')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-sirius-gold/15 hover:bg-sirius-gold hover:text-sirius-dark border border-sirius-gold/40 text-sirius-gold transition-all">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No items found alert -->
+      <div id="catalog-no-results" class="hidden text-center py-16 bg-white/[0.02] border border-white/10 rounded-3xl mt-6">
+        <svg class="w-12 h-12 text-slate-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="text-base font-bold text-white">Ничего не найдено</div>
+        <div class="text-xs text-slate-400 mt-1">Попробуйте изменить поисковый запрос или сбросить фильтры</div>
+        <button onclick="filterCatalog('all', document.querySelector('.cat-filter-btn'))" class="mt-4 px-4 py-2 rounded-xl bg-sirius-gold text-sirius-dark text-xs font-bold uppercase">Сбросить фильтры</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- CONTACTS & PRODUCTION ADDRESS SECTION -->
+  <!-- ========================================================================= -->
+  <section id="contacts" class="py-24 bg-[#080B12] border-t border-white/10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left Column: Contact Cards + Map (5 cols) -->
+        <div class="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
+          <div class="p-6 sm:p-8 rounded-3xl bg-sirius-card border border-white/10 shadow-steel-card space-y-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-sirius-gold font-mono text-xs uppercase tracking-[0.2em] font-bold mb-2">Производство и офис</div>
+              <h2 class="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-white">
+                Контакты СК «Сириус»
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-400 mt-2">
+                Приглашаем на производство для осмотра готовых образцов перил, узлов и настилов.
+              </p>
+            </div>
+
+            <div class="space-y-4 pt-2">
+              <!-- Address -->
+              <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/[0.03] border border-white/5">
+                <div class="w-9 h-9 rounded-xl bg-sirius-gold/15 text-sirius-gold flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono uppercase text-slate-400">Адрес производства и цеха:</div>
+                  <div class="text-xs sm:text-sm font-bold text-white mt-0.5">г. Красноярск, пр. Металлургов 2В, бокс №16</div>
+                  <a href="https://yandex.ru/maps/?um=constructor%3Ad39f4160493e715af28b803f8126e59a5ac8e9bbad8f960a5845308f0e7ef68a&source=constructorLink" target="_blank" rel="noopener noreferrer" class="text-xs text-sirius-gold hover:underline inline-flex items-center gap-1 mt-1">
+                    Открыть на Яндекс.Картах &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <!-- Phones -->
+              <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/[0.03] border border-white/5">
+                <div class="w-9 h-9 rounded-xl bg-sirius-gold/15 text-sirius-gold flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono uppercase text-slate-400">Телефоны отдела заказов:</div>
+                  <div class="text-sm font-bold text-white mt-0.5 flex flex-col gap-0.5">
+                    <a href="tel:+73912151812" class="hover:text-sirius-gold transition-colors font-mono text-base">+7 (391) 215-18-12</a>
+                    <a href="tel:+79233551812" class="text-slate-300 hover:text-sirius-gold transition-colors font-mono text-xs">+7 (923) 355-18-12</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/[0.03] border border-white/5">
+                <div class="w-9 h-9 rounded-xl bg-sirius-gold/15 text-sirius-gold flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono uppercase text-slate-400">Электронная почта для заявок:</div>
+                  <div class="text-xs sm:text-sm font-semibold text-white mt-0.5">
+                    <a href="mailto:sk-sirius24@yandex.ru" class="hover:text-sirius-gold transition-colors">sk-sirius24@yandex.ru</a>
+                  </div>
+                  <div class="text-[11px] text-slate-400 mt-0.5">
+                    Принимаем чертежи и техзадания 24/7
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hours -->
+              <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/[0.03] border border-white/5">
+                <div class="w-9 h-9 rounded-xl bg-sirius-gold/15 text-sirius-gold flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono uppercase text-slate-400">Режим работы:</div>
+                  <div class="text-xs sm:text-sm font-medium text-white mt-0.5">
+                    Пн — Пт: <span class="font-bold text-sirius-gold">10:00 — 20:00</span>
+                  </div>
+                  <div class="text-[11px] text-slate-400 mt-0.5">Сб, Вс: выходной (онлайн 24/7)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Form + Map (7 cols) -->
+        <div class="lg:col-span-7 flex flex-col space-y-6 h-full justify-between">
+          
+          <!-- Interactive Order / Feedback Form -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-sirius-card border border-white/10 shadow-steel-card flex-1">
+            <h3 class="font-title font-bold text-xl text-white mb-1">
+              Оставить заявку на консультацию и выезд
+            </h3>
+            <p class="text-xs text-slate-400 mb-6">
+              Заполните контактные данные, и главный инженер свяжется с вами в течение 15 минут.
+            </p>
+
+            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Ваше имя *</label>
+                  <input 
+                    type="text" 
+                    id="cf-name" 
+                    required 
+                    placeholder="Алексей" 
+                    class="w-full px-4 py-3 rounded-xl bg-sirius-surface border border-white/10 text-sm text-white focus:outline-none focus:border-sirius-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Номер телефона *</label>
+                  <input 
+                    type="tel" 
+                    id="cf-phone" 
+                    required 
+                    placeholder="+7 (___) ___-__-__" 
+                    class="w-full px-4 py-3 rounded-xl bg-sirius-surface border border-white/10 text-sm text-white focus:outline-none focus:border-sirius-gold transition-colors">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Адрес объекта в Красноярске</label>
+                <input 
+                  type="text" 
+                  id="cf-address" 
+                  placeholder="пр. Мира / ул. 9 Мая / за городом..." 
+                  class="w-full px-4 py-3 rounded-xl bg-sirius-surface border border-white/10 text-sm text-white focus:outline-none focus:border-sirius-gold transition-colors">
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Что требуется (тип ограждения, длина, пожелания)</label>
+                <textarea 
+                  id="cf-message" 
+                  rows="3" 
+                  placeholder="Например: Ограждения для внутренней лестницы 12 м.п., 3 ригеля, марка AISI 201..." 
+                  class="w-full px-4 py-3 rounded-xl bg-sirius-surface border border-white/10 text-sm text-white focus:outline-none focus:border-sirius-gold transition-colors resize-none"></textarea>
+              </div>
+
+              <div class="flex items-center gap-2 pt-2">
+                <input type="checkbox" id="cf-agree" checked required class="rounded bg-slate-800 border-white/20 text-sirius-gold accent-sirius-gold">
+                <label for="cf-agree" class="text-[11px] text-slate-400 leading-tight">
+                  Согласен на обработку персональных данных и подтверждаю вызов замерщика
+                </label>
+              </div>
+
+              <button 
+                type="submit" 
+                class="w-full py-4 rounded-xl font-title font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-sirius-gold to-amber-500 text-sirius-dark hover:brightness-110 shadow-gold-glow transition-all">
+                Отправить заявку инженеру
+              </button>
+            </form>
+          </div>
+
+          <!-- Yandex Map Frame -->
+          <div class="h-56 sm:h-64 rounded-3xl overflow-hidden border border-white/10 relative">
+            <iframe 
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad39f4160493e715af28b803f8126e59a5ac8e9bbad8f960a5845308f0e7ef68a&amp;source=constructor" 
+              width="100%" 
+              height="100%" 
+              frameborder="0" 
+              class="w-full h-full grayscale-[50%] contrast-[110%] hover:grayscale-0 transition-all duration-500">
+            </iframe>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER WITH MANDATORY PULSECORE ATTRIBUTION (RULE 6) -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#05070A] border-t border-white/10 py-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-white/5">
+        
+        <!-- Col 1 -->
+        <div class="space-y-3">
+          <div class="text-lg font-bold font-title text-white tracking-tight flex items-center gap-2">
+            <span>СК</span>
+            <span class="text-sirius-gold">СИРИУС</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Изготовление и профессиональный монтаж ограждений, перил и пандусов из нержавеющей стали в Красноярске с 2014 года.
+          </p>
+          <div class="font-mono text-[11px] text-sirius-gold">
+            Гарантия на все конструкции — 7 лет
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <div class="font-title font-bold text-white uppercase tracking-wider text-xs mb-3">Продукция</div>
+          <ul class="space-y-2 text-xs">
+            <li><button onclick="switchView('catalog'); filterCatalog('stairs', document.querySelectorAll('.cat-filter-btn')[1])" class="hover:text-sirius-gold transition-colors">Лестничные ограждения</button></li>
+            <li><button onclick="switchView('catalog'); filterCatalog('ramp-rails', document.querySelectorAll('.cat-filter-btn')[2])" class="hover:text-sirius-gold transition-colors">Поручни для пандусов</button></li>
+            <li><button onclick="switchView('catalog'); filterCatalog('ramps', document.querySelectorAll('.cat-filter-btn')[3])" class="hover:text-sirius-gold transition-colors">Пандусы и аппарели</button></li>
+            <li><button onclick="switchView('catalog'); filterCatalog('mgn', document.querySelectorAll('.cat-filter-btn')[4])" class="hover:text-sirius-gold transition-colors">Оборудование для МГН</button></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <div class="font-title font-bold text-white uppercase tracking-wider text-xs mb-3">Контакты цеха</div>
+          <div class="space-y-1.5 text-xs">
+            <div>г. Красноярск, пр. Металлургов 2В</div>
+            <div>Тел: <a href="tel:+73912151812" class="text-white hover:text-sirius-gold font-mono">+7 (391) 215-18-12</a></div>
+            <div>Email: <a href="mailto:sk-sirius24@yandex.ru" class="text-white hover:text-sirius-gold">sk-sirius24@yandex.ru</a></div>
+            
+          </div>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <div class="font-title font-bold text-white uppercase tracking-wider text-xs mb-3">Расчет проекта</div>
+          <p class="text-xs text-slate-400 mb-3">Индивидуальный расчет стоимости и бесплатный выезд инженера:</p>
+          <button 
+            onclick="openOrderModal('Подвал — Заказ замера')"
+            class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-sirius-gold text-sirius-dark font-title font-bold text-[11px] uppercase tracking-wider hover:brightness-110 transition-all">
+            <span>Вызвать инженера</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar with Mandatory PulseCore Attribution (Rule 6) -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+        <div>
+          &copy; 2014&ndash;2026 Строительная компания «СК Сириус». Все права защищены.
+        </div>
+        
+        <!-- Mandatory PulseCore link (Rule 6) -->
+        <div class="text-right">
+          <a 
+            href="https://synaptiqlab.tech/#pricing" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="text-slate-400 hover:text-sirius-gold transition-colors text-xs font-light">
+            Сайт создан на архитектуре PulseCore by SYNAPTIQ Lab
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: FAST ORDER / FREE MEASUREMENT REQUEST -->
+  <!-- ========================================================================= -->
+  <div id="order-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-sirius-card border border-white/15 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative animate-fade-in space-y-5">
+      
+      <!-- Close button -->
+      <button 
+        onclick="closeOrderModal()" 
+        class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+        ✕
+      </button>
+
+      <!-- MODAL HEADER -->
+      <div id="modal-header-block">
+        <span class="text-xs font-mono uppercase text-sirius-gold font-bold">Быстрое оформление</span>
+        <h3 class="text-2xl font-bold font-title text-white mt-1" id="modal-title">
+          Заявка на выезд специалиста
+        </h3>
+        <p class="text-xs text-slate-400 mt-1">
+          Выезд на замер по Красноярску — <strong class="text-emerald-400">0 ₽ (Бесплатно)</strong>.
+        </p>
+      </div>
+
+      <!-- MODAL FORM -->
+      <form id="modal-order-form" onsubmit="handleModalSubmit(event)" class="space-y-4">
+        <input type="hidden" id="modal-product-name" value="Заявка с сайта">
+
+        <div>
+          <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Выбранная позиция / Расчет:</label>
+          <div id="modal-product-badge" class="px-3.5 py-2 rounded-xl bg-sirius-surface border border-white/10 font-title text-sm text-sirius-gold font-semibold">
+            Лестничное ограждение
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Ваше имя *</label>
+          <input 
+            type="text" 
+            id="modal-name" 
+            required 
+            placeholder="Иван" 
+            class="w-full px-4 py-3 rounded-xl bg-sirius-surface border border-white/10 text-sm text-white focus:outline-none focus:border-sirius-gold transition-colors">
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Телефон для связи *</label>
+          <input 
+            type="tel" 
+            id="modal-phone" 
+            required 
+            placeholder="+7 (___) ___-__-__" 
+            class="w-full px-4 py-3 rounded-xl bg-sirius-surface border border-white/10 text-sm text-white focus:outline-none focus:border-sirius-gold transition-colors">
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Адрес объекта или примечание</label>
+          <input 
+            type="text" 
+            id="modal-address" 
+            placeholder="Красноярск, ул. ..." 
+            class="w-full px-4 py-3 rounded-xl bg-sirius-surface border border-white/10 text-sm text-white focus:outline-none focus:border-sirius-gold transition-colors">
+        </div>
+
+        <div class="pt-2">
+          <button 
+            type="submit" 
+            class="w-full py-4 rounded-xl font-title font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-sirius-gold to-amber-500 text-sirius-dark hover:brightness-110 shadow-gold-glow transition-all">
+            Отправить заявку
+          </button>
+        </div>
+
+        <div class="flex items-center justify-center gap-2 pt-1">
+          <span class="text-[11px] text-slate-500">Или позвоните нам:</span>
+          <a href="tel:+73912151812" class="text-xs text-sirius-gold hover:underline flex items-center gap-1 font-mono font-bold">
+            +7 (391) 215-18-12
+          </a>
+        </div>
+      </form>
+
+      <!-- FUTURISTIC CONSTELLATION HUD SUCCESS STATE -->
+      <div id="modal-success-state" class="hidden text-center py-4 space-y-4 relative overflow-hidden">
+        <!-- Interactive 2D Constellation Vector Canvas -->
+        <canvas id="modal-constellation-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+        <div class="relative z-10 flex flex-col items-center">
+          
+          <!-- Futuristic Sirius Star & Holographic Hexagonal Reticle -->
+          <div class="relative w-28 h-28 my-1 flex items-center justify-center">
+            <!-- Quantum pulsing shockwave -->
+            <div class="absolute inset-0 rounded-full border border-sky-400/20 anim-radar-sweep"></div>
+            <div class="absolute inset-3 rounded-full bg-sirius-gold/15 blur-lg"></div>
+            
+            <svg class="w-28 h-28 relative z-10" viewBox="0 0 120 120" fill="none">
+              <!-- Outer Rotating Tech Compass Ring -->
+              <circle cx="60" cy="60" r="54" stroke="#38BDF8" stroke-width="1.2" stroke-dasharray="6 4" class="anim-hud-ring-1 opacity-70"/>
+              <!-- Inner Counter-Rotating Hexagonal Matrix -->
+              <polygon points="60,14 100,37 100,83 60,106 20,83 20,37" stroke="#DBBB13" stroke-width="1.5" stroke-dasharray="14 6" class="anim-hud-ring-2 opacity-80"/>
+              <!-- Crosshair Precision Axes -->
+              <line x1="60" y1="8" x2="60" y2="20" stroke="#38BDF8" stroke-width="1.5"/>
+              <line x1="60" y1="100" x2="60" y2="112" stroke="#38BDF8" stroke-width="1.5"/>
+              <line x1="8" y1="60" x2="20" y2="60" stroke="#38BDF8" stroke-width="1.5"/>
+              <line x1="100" y1="60" x2="112" y2="60" stroke="#38BDF8" stroke-width="1.5"/>
+              <!-- Center Glow Star Core -->
+              <circle cx="60" cy="60" r="28" fill="url(#hud-core-grad)" opacity="0.2"/>
+              <!-- Laser Precision Checkmark -->
+              <path d="M42 61 L54 73 L80 43" stroke="#F5DC4C" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" class="anim-laser-check" filter="drop-shadow(0 0 8px rgba(219, 187, 19, 0.9))"/>
+              <defs>
+                <radialGradient id="hud-core-grad">
+                  <stop offset="0%" stop-color="#DBBB13"/>
+                  <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <!-- Futuristic Telemetry Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-400/40 text-[11px] font-mono text-sky-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>ТЕЛЕМЕТРИЯ: СВЯЗЬ С ЦЕХОМ УСТАНОВЛЕНА</span>
+          </div>
+
+          <h3 class="text-2xl font-black font-title tracking-tight text-white mt-1">
+            Заявка зафиксирована в системе
+          </h3>
+
+          <!-- Cyberpunk Telemetry HUD Terminal Card -->
+          <div class="w-full mt-3 p-4 rounded-2xl bg-[#090D16]/95 border border-sirius-gold/40 shadow-gold-glow text-left space-y-2.5 font-mono text-xs">
+            <div class="flex items-center justify-between border-b border-white/10 pb-2">
+              <span class="text-slate-400">ID НАРЯДА:</span>
+              <span class="font-bold text-sirius-gold text-sm tracking-wider" id="modal-success-id">#SIR-8492</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-white/10 pb-2">
+              <span class="text-slate-400">КАНАЛ СВЯЗИ:</span>
+              <span class="text-emerald-400 flex items-center gap-1.5 font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                TELEGRAM → «СИРИУС ЗАМЕРЫ» [200 OK]
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-slate-300 border-b border-white/10 pb-2">
+              <span class="text-slate-400">КООРДИНАТЫ ЦЕХА:</span>
+              <span class="text-slate-300">56.0643° N, 92.9724° E (Красноярск)</span>
+            </div>
+            <div class="flex items-center justify-between text-slate-300">
+              <span class="text-slate-400">ВРЕМЯ ОТКЛИКА:</span>
+              <span class="text-sirius-goldLight font-bold">10–15 МИНУТ</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-300 mt-3 leading-relaxed max-w-sm">
+            Параметры вашего запроса оцифрованы и переданы главному инженеру. Ожидайте входящий звонок для согласования времени бесплатного выезда на замер.
+          </p>
+
+          <button 
+            type="button" 
+            onclick="closeOrderModal()" 
+            class="mt-4 w-full py-3.5 rounded-xl font-title font-bold text-xs uppercase tracking-widest bg-gradient-to-r from-sirius-gold via-amber-400 to-sirius-goldDark text-sirius-dark hover:brightness-110 shadow-gold-glow transition-all">
+            [ ПОДТВЕРДИТЬ И ЗАКРЫТЬ ]
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- LIGHTBOX MODAL FOR PHOTO ZOOM -->
+  <!-- ========================================================================= -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-xl flex items-center justify-center p-4" onclick="closeLightbox()">
+    <div class="max-w-4xl w-full relative flex flex-col items-center" onclick="event.stopPropagation()">
+      <button 
+        onclick="closeLightbox()" 
+        class="absolute -top-12 right-0 text-white/70 hover:text-white text-2xl font-bold bg-white/10 w-10 h-10 rounded-full flex items-center justify-center">
+        ✕
+      </button>
+      <img id="lightbox-img" src="" alt="" class="max-h-[80vh] w-auto rounded-2xl object-contain shadow-2xl border border-white/15">
+      <div id="lightbox-caption" class="text-sm font-title font-semibold text-slate-200 mt-4 text-center"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SUCCESS TOAST NOTIFICATION -->
+  <!-- ========================================================================= -->
+  <div id="toast-success" class="fixed bottom-6 right-6 z-50 hidden max-w-md p-4 rounded-2xl bg-sirius-surface border border-emerald-500/50 shadow-2xl flex items-start gap-3 animate-bounce">
+    <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+      ✓
+    </div>
+    <div>
+      <div class="text-sm font-bold text-white">Заявка успешно отправлена!</div>
+      <div class="text-xs text-slate-300 mt-0.5">Специалист СК «Сириус» свяжется с вами в течение нескольких минут.</div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: LOGIC, CALCULATOR, VIEW SWITCHER & THREE.JS 3D CONSTELLATION -->
+  <!-- ========================================================================= -->
+  <script>
+    // -------------------------------------------------------------
+    // 1. SEAMLESS SPA VIEW SWITCHER (Главная <-> Каталог)
+    // -------------------------------------------------------------
+    function switchView(viewName, targetScrollId = null) {
+      const viewMain = document.getElementById('view-main');
+      const viewCatalog = document.getElementById('view-catalog');
+      const btnMain = document.getElementById('tab-btn-main');
+      const btnCatalog = document.getElementById('tab-btn-catalog');
+
+      if (viewName === 'catalog') {
+        viewMain.classList.add('view-hidden');
+        viewCatalog.classList.remove('view-hidden');
+        
+        // Update header buttons
+        if (btnMain && btnCatalog) {
+          btnCatalog.className = "px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-sirius-gold to-amber-500 text-sirius-dark shadow-gold-glow font-title";
+          btnMain.className = "px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 text-slate-300 hover:text-white font-title";
+        }
+        window.history.pushState(null, '', '#catalog');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        viewCatalog.classList.add('view-hidden');
+        viewMain.classList.remove('view-hidden');
+
+        // Update header buttons
+        if (btnMain && btnCatalog) {
+          btnMain.className = "px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-sirius-gold to-amber-500 text-sirius-dark shadow-gold-glow font-title";
+          btnCatalog.className = "px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 text-slate-300 hover:text-white font-title";
+        }
+        
+        if (targetScrollId) {
+          window.history.pushState(null, '', '#' + targetScrollId);
+          setTimeout(() => {
+            const target = document.getElementById(targetScrollId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 50);
+        } else {
+          window.history.pushState(null, '', '#main');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    }
+
+    // Check hash on initial load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash;
+      if (hash === '#catalog') {
+        switchView('catalog');
+      } else if (hash === '#calculator' || hash === '#contacts' || hash === '#about') {
+        switchView('main', hash.replace('#', ''));
+      }
+    });
+
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash;
+      if (hash === '#catalog') {
+        switchView('catalog');
+      } else {
+        switchView('main', hash ? hash.replace('#', '') : null);
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // -------------------------------------------------------------
+    // 2. CATALOG FILTERING & LIVE SEARCH
+    // -------------------------------------------------------------
+    function filterCatalog(category, buttonEl) {
+      // Clear active style on buttons
+      document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+        btn.className = "cat-filter-btn px-4 py-2 rounded-xl text-xs font-title font-semibold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-all";
+      });
+      if (buttonEl) {
+        buttonEl.className = "cat-filter-btn active px-4 py-2 rounded-xl text-xs font-title font-bold bg-sirius-gold text-sirius-dark transition-all";
+      }
+
+      const items = document.querySelectorAll('.product-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.cat === category) {
+          item.style.display = 'flex';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      const noResults = document.getElementById('catalog-no-results');
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+
+    function searchCatalog(query) {
+      const lower = query.toLowerCase().trim();
+      const items = document.querySelectorAll('.product-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const text = (item.dataset.title || '') + ' ' + item.textContent.toLowerCase();
+        if (!lower || text.includes(lower)) {
+          item.style.display = 'flex';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      const noResults = document.getElementById('catalog-no-results');
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+
+    // -------------------------------------------------------------
+    // 3. INTERACTIVE CALCULATOR ENGINE
+    // -------------------------------------------------------------
+    const calcData = {
+      railings: {
+        unit: 'м.п.',
+        models: [
+          { id: 'econom', name: 'Ограждение "Эконом" (2 ригеля)', baseRate: 5600 },
+          { id: 'standard', name: 'Ограждение "Стандарт" (3 ригеля с поворотом)', baseRate: 6400 },
+          { id: 'premium', name: 'Ограждение "Премиум" (3-4 ригеля, люкс фурнитура)', baseRate: 7200 }
+        ]
+      },
+      ramphands: {
+        unit: 'м.п.',
+        models: [
+          { id: 'ramp_light', name: 'Поручни для пандуса "Лайт" (двойной 700/900 мм)', baseRate: 6400 },
+          { id: 'ramp_norma', name: 'Поручни для пандуса "Норма" (двойной + отбойник)', baseRate: 7200 },
+          { id: 'ramp_gost', name: 'Поручни для пандуса "ГОСТ" (полный норматив)', baseRate: 8000 }
+        ]
+      },
+      ramps: {
+        unit: 'м.п. / компл.',
+        models: [
+          { id: 'apparel_stat', name: 'Аппарели стационарные (комплект)', baseRate: 12600, fixedItem: true },
+          { id: 'apparel_fold', name: 'Аппарели откидные для подъезда (комплект)', baseRate: 20400, fixedItem: true },
+          { id: 'apparel_dual', name: 'Аппарели складные (компактный комплект)', baseRate: 23800, fixedItem: true },
+          { id: 'ramp_metal', name: 'Пандус стационарный металл (сетка ПВЛ 408)', baseRate: 18600 },
+          { id: 'ramp_combo', name: 'Пандус стационарный с двойными поручнями из нерж.', baseRate: 24200 }
+        ]
+      },
+      mgn: {
+        unit: 'шт.',
+        models: [
+          { id: 'mgn_straight', name: 'Поручень пристенный прямой 500-1000 мм', baseRate: 6400, fixedItem: true },
+          { id: 'mgn_g_shape', name: 'Поручень пристенный Г-образный вертикальный 500х500 мм', baseRate: 7200, fixedItem: true },
+          { id: 'mgn_corner', name: 'Поручень пристенный угловой (внутр./наруж.)', baseRate: 8000, fixedItem: true },
+          { id: 'mgn_sink', name: 'Поручень для раковины (настенный/с упором в пол)', baseRate: 8000, fixedItem: true },
+          { id: 'mgn_toilet', name: 'Поручень для унитаза откидной 800х200 мм', baseRate: 8000, fixedItem: true }
+        ]
+      }
+    };
+
+    let currentCalcCat = 'railings';
+
+    function setCalcCategory(catKey) {
+      currentCalcCat = catKey;
+      
+      // Update UI button tabs
+      document.querySelectorAll('.calc-cat-btn').forEach(btn => {
+        if (btn.dataset.cat === catKey) {
+          btn.className = "calc-cat-btn active p-3 rounded-xl border border-sirius-gold bg-sirius-gold/15 text-sirius-gold font-semibold text-xs text-center transition-all";
+        } else {
+          btn.className = "calc-cat-btn p-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 font-semibold text-xs text-center hover:border-white/20 transition-all";
+        }
+      });
+
+      // Populate select
+      const select = document.getElementById('calc-model-select');
+      select.innerHTML = '';
+      calcData[catKey].models.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.id;
+        opt.textContent = `${m.name} — от ${m.baseRate.toLocaleString('ru-RU')} ₽`;
+        select.appendChild(opt);
+      });
+
+      // Update unit label
+      const unitLabel = document.getElementById('calc-unit-label');
+      unitLabel.textContent = calcData[catKey].unit;
+
+      recalculateCost();
+    }
+
+    function updateCalcSlider(val) {
+      document.getElementById('calc-length-val').textContent = val;
+      recalculateCost();
+    }
+
+    function recalculateCost() {
+      const cat = calcData[currentCalcCat];
+      const modelId = document.getElementById('calc-model-select').value;
+      const model = cat.models.find(m => m.id === modelId) || cat.models[0];
+      const sliderVal = parseInt(document.getElementById('calc-length-slider').value) || 10;
+      
+      const steelRadio = document.querySelector('input[name="calc-steel"]:checked');
+      const steelVal = steelRadio ? steelRadio.value : '201';
+
+      const optTurns = document.getElementById('calc-opt-turns').checked;
+      const optInstall = document.getElementById('calc-opt-install').checked;
+
+      let multiplier = 1.0;
+      if (steelVal === '304') {
+        multiplier += 0.22; // AISI 304 surcharge for weather durability
+      }
+      if (optTurns && currentCalcCat === 'railings') {
+        multiplier += 0.08;
+      }
+
+      let total = 0;
+      let quantity = sliderVal;
+
+      if (model.fixedItem) {
+        total = Math.floor((model.baseRate * multiplier * quantity) / 100) * 100;
+      } else {
+        total = Math.floor((model.baseRate * multiplier * quantity) / 100) * 100;
+      }
+
+      // Update summary displays
+      document.getElementById('calc-summary-title').textContent = model.name;
+      document.getElementById('calc-summary-meters').textContent = `${quantity} ${cat.unit}`;
+      document.getElementById('calc-summary-rate').textContent = `${(Math.floor((model.baseRate * multiplier) / 100) * 100).toLocaleString('ru-RU')} ₽ / ${cat.unit}`;
+      document.getElementById('calc-summary-steel').textContent = steelVal === '304' ? 'AISI 304 (Улица/Влага)' : 'AISI 201 (Интерьер)';
+      document.getElementById('calc-total-price').textContent = total.toLocaleString('ru-RU') + ' ₽';
+    }
+
+    function submitCalculatedOrder() {
+      const modelTitle = document.getElementById('calc-summary-title').textContent;
+      const total = document.getElementById('calc-total-price').textContent;
+      const meters = document.getElementById('calc-summary-meters').textContent;
+      const desc = `Расчет калькулятора: ${modelTitle}, объем ${meters}, сумма ~${total}`;
+      openOrderModal(desc);
+    }
+
+    // Initialize calculator
+    setCalcCategory('railings');
+
+    // -------------------------------------------------------------
+    // 4. MODALS & LIGHTBOX
+    // -------------------------------------------------------------
+    // Futuristic Sci-Fi Audio & Constellation Telemetry Vector Engine
+    function playSciFiTelemetrySound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+
+        // Laser scan telemetry sweep
+        const osc1 = ctx.createOscillator();
+        const gain1 = ctx.createGain();
+        osc1.type = 'sawtooth';
+        osc1.frequency.setValueAtTime(440, ctx.currentTime);
+        osc1.frequency.exponentialRampToValueAtTime(1760, ctx.currentTime + 0.18);
+        gain1.gain.setValueAtTime(0.04, ctx.currentTime);
+        gain1.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.22);
+        osc1.connect(gain1);
+        gain1.connect(ctx.destination);
+        osc1.start(ctx.currentTime);
+        osc1.stop(ctx.currentTime + 0.25);
+
+        // Warm harmonic Sirius star ping
+        [880, 1320, 1760].forEach((freq, idx) => {
+          const osc2 = ctx.createOscillator();
+          const gain2 = ctx.createGain();
+          osc2.type = 'sine';
+          osc2.frequency.setValueAtTime(freq, ctx.currentTime + 0.15 + idx * 0.05);
+          gain2.gain.setValueAtTime(0.05, ctx.currentTime + 0.15 + idx * 0.05);
+          gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15 + idx * 0.05 + 0.55);
+          osc2.connect(gain2);
+          gain2.connect(ctx.destination);
+          osc2.start(ctx.currentTime + 0.15 + idx * 0.05);
+          osc2.stop(ctx.currentTime + 0.8);
+        });
+      } catch (e) {}
+    }
+
+    // Interactive Constellation Laser Vector Grid on Success
+    function triggerConstellationWarp(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width || 450;
+      canvas.height = rect.height || 500;
+
+      const centerX = canvas.width / 2;
+      const centerY = 90; // center around the Sirius star badge
+
+      // Generate constellation nodes
+      const starNodes = [];
+      const nodeCount = 28;
+      for (let i = 0; i < nodeCount; i++) {
+        const angle = (Math.PI * 2 * i) / nodeCount + (Math.random() - 0.5) * 0.5;
+        const dist = 35 + Math.random() * 160;
+        starNodes.push({
+          x: centerX + Math.cos(angle) * dist,
+          y: centerY + Math.sin(angle) * dist * 0.85,
+          targetDist: dist,
+          currentDist: 0,
+          speed: 3 + Math.random() * 4,
+          size: Math.random() * 2.5 + 1.5,
+          color: (i % 3 === 0) ? '#DBBB13' : (i % 3 === 1 ? '#38BDF8' : '#FFFFFF'),
+          alpha: 1
+        });
+      }
+
+      let startTime = performance.now();
+      function drawFrame(now) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const elapsed = (now - startTime) / 1000;
+        let active = false;
+
+        // Draw laser constellation connections
+        ctx.lineWidth = 1;
+        for (let i = 0; i < starNodes.length; i++) {
+          const a = starNodes[i];
+          if (a.currentDist < a.targetDist) {
+            a.currentDist += a.speed;
+            active = true;
+          }
+          const curX = centerX + (a.x - centerX) * (a.currentDist / a.targetDist);
+          const curY = centerY + (a.y - centerY) * (a.currentDist / a.targetDist);
+
+          // Connect to center with laser beam
+          const laserAlpha = Math.max(0, 0.4 - elapsed * 0.15);
+          if (laserAlpha > 0) {
+            ctx.strokeStyle = `rgba(219, 187, 19, ${laserAlpha})`;
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(curX, curY);
+            ctx.stroke();
+          }
+
+          // Connect adjacent nodes
+          for (let j = i + 1; j < starNodes.length; j++) {
+            const b = starNodes[j];
+            const curBX = centerX + (b.x - centerX) * (b.currentDist / b.targetDist);
+            const curBY = centerY + (b.y - centerY) * (b.currentDist / b.targetDist);
+            const d = Math.hypot(curX - curBX, curY - curBY);
+            if (d < 65) {
+              const gridAlpha = Math.max(0, (1 - d / 65) * (0.6 - elapsed * 0.2));
+              ctx.strokeStyle = `rgba(56, 189, 248, ${gridAlpha})`;
+              ctx.beginPath();
+              ctx.moveTo(curX, curY);
+              ctx.lineTo(curBX, curBY);
+              ctx.stroke();
+            }
+          }
+
+          // Draw star node
+          const nodeAlpha = Math.max(0, 1 - elapsed * 0.35);
+          if (nodeAlpha > 0) {
+            active = true;
+            ctx.fillStyle = a.color;
+            ctx.globalAlpha = nodeAlpha;
+            ctx.beginPath();
+            ctx.arc(curX, curY, a.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+          }
+        }
+
+        if (active && elapsed < 3.2) {
+          requestAnimationFrame(drawFrame);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+      requestAnimationFrame(drawFrame);
+    }
+
+    function openOrderModal(productTitle = 'Заявка на расчет и замер') {
+      const modal = document.getElementById('order-modal');
+      
+      // Reset form states
+      const headerBlock = document.getElementById('modal-header-block');
+      const formBlock = document.getElementById('modal-order-form');
+      const successBlock = document.getElementById('modal-success-state');
+      if (headerBlock) headerBlock.classList.remove('hidden');
+      if (formBlock) formBlock.classList.remove('hidden');
+      if (successBlock) successBlock.classList.add('hidden');
+
+      document.getElementById('modal-title').textContent = 'Заявка на выезд специалиста';
+      document.getElementById('modal-product-badge').textContent = productTitle;
+      document.getElementById('modal-product-name').value = productTitle;
+      modal.classList.remove('hidden');
+    }
+
+    function closeOrderModal() {
+      document.getElementById('order-modal').classList.add('hidden');
+    }
+
+    function openLightbox(imgUrl, caption = '') {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      img.src = imgUrl;
+      img.alt = caption;
+      cap.textContent = caption;
+      modal.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.add('hidden');
+    }
+
+    // =========================================================================
+    // НАСТРОЙКА ОТПРАВКИ ЗАЯВОК В TELEGRAM
+    // =========================================================================
+    // Чтобы заявки приходили прямо в ваш Telegram-чат или группу:
+    // 1. Создайте бота через @BotFather в Telegram и вставьте токен в BOT_TOKEN
+    // 2. Узнайте ваш chat_id (через бота @userinfobot) и вставьте в CHAT_ID
+    const TELEGRAM_CONFIG = {
+      botToken: '8841016906:AAHAYvnCBczKdQPgmcdo07qnQx6EVbkkjDw', // Токен бота
+      chatId: '-1004329049893' // Группа «Сириус Замеры»
+    };
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    async function sendToTelegram(leadData) {
+      if (!TELEGRAM_CONFIG.botToken || !TELEGRAM_CONFIG.chatId) {
+        console.warn('Данные лида (Telegram не настроен):', leadData);
+        return false;
+      }
+
+      const text = `🔥 <b>НОВАЯ ЗАЯВКА С САЙТА СК СИРИУС</b>\n\n` +
+        `👤 <b>Имя:</b> ${escapeHtml(leadData.name) || 'Не указано'}\n` +
+        `📞 <b>Телефон:</b> ${escapeHtml(leadData.phone) || 'Не указан'}\n` +
+        `📍 <b>Адрес:</b> ${escapeHtml(leadData.address) || 'Не указан'}\n` +
+        `📦 <b>Запрос / Расчет:</b> ${escapeHtml(leadData.product || leadData.message) || 'Общая заявка'}\n` +
+        `⏰ <b>Время:</b> ${new Date().toLocaleString('ru-RU')}`;
+
+      try {
+        const url = `https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/sendMessage`;
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CONFIG.chatId,
+            text: text,
+            parse_mode: 'HTML'
+          })
+        });
+        const data = await res.json();
+        if (!data.ok) {
+          console.error('Ошибка ответа Telegram API:', data);
+          return false;
+        }
+        return true;
+      } catch (err) {
+        console.error('Сетевая ошибка отправки в Telegram:', err);
+        return false;
+      }
+    }
+
+    // Form handlers
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Отправка заявки...';
+      }
+
+      const name = document.getElementById('cf-name').value;
+      const phone = document.getElementById('cf-phone').value;
+      const address = document.getElementById('cf-address').value;
+      const msg = document.getElementById('cf-message').value;
+
+      await sendToTelegram({
+        name: name,
+        phone: phone,
+        address: address,
+        message: msg,
+        product: 'Форма на странице контактов'
+      });
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+
+      showSuccessToast();
+      e.target.reset();
+    }
+
+    async function handleModalSubmit(e) {
+      e.preventDefault();
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Отправка заявки...';
+      }
+
+      const product = document.getElementById('modal-product-name').value;
+      const name = document.getElementById('modal-name').value;
+      const phone = document.getElementById('modal-phone').value;
+      const address = document.getElementById('modal-address').value;
+
+      await sendToTelegram({
+        name: name,
+        phone: phone,
+        address: address,
+        product: product
+      });
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+
+      // Generate order number like #SR-4892
+      const orderNum = '#SR-' + Math.floor(1000 + Math.random() * 9000);
+      const idEl = document.getElementById('modal-success-id');
+      if (idEl) idEl.textContent = orderNum;
+
+      // Switch to animated success screen
+      document.getElementById('modal-header-block').classList.add('hidden');
+      document.getElementById('modal-order-form').classList.add('hidden');
+      document.getElementById('modal-success-state').classList.remove('hidden');
+
+      // Trigger effects
+      playSciFiTelemetrySound();
+      triggerConstellationWarp('modal-constellation-canvas');
+      showSuccessToast();
+      e.target.reset();
+    }
+
+    function showSuccessToast() {
+      const toast = document.getElementById('toast-success');
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 5000);
+    }
+
+    // -------------------------------------------------------------
+    // 5. IMMERSIVE HOLOGRAPHIC CYBER-CONSTELLATION & HUD GIMBAL
+    // -------------------------------------------------------------
+    (function initImmersive3D() {
+      const canvas = document.getElementById('immersive-canvas');
+      if (!canvas || !window.THREE) return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 32;
+
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // Ambient & directional lighting
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+      scene.add(ambientLight);
+
+      const goldPoint = new THREE.PointLight(0xDBBB13, 4, 70);
+      goldPoint.position.set(0, 0, 12);
+      scene.add(goldPoint);
+
+      const cyanPoint = new THREE.PointLight(0x38BDF8, 2.5, 60);
+      cyanPoint.position.set(-15, 10, 10);
+      scene.add(cyanPoint);
+
+      // Main root constellation system group
+      const hudSystem = new THREE.Group();
+      scene.add(hudSystem);
+
+      // =========================================================
+      // A. CENTRAL RADIANT SIRIUS STAR & 8-POINTED ENERGY FLARE
+      // =========================================================
+      const siriusGroup = new THREE.Group();
+      hudSystem.add(siriusGroup);
+
+      // Glowing star core (faceted octahedron crystal + inner sphere)
+      const coreGeo = new THREE.SphereGeometry(1.2, 32, 32);
+      const coreMat = new THREE.MeshStandardMaterial({
+        color: 0xDBBB13,
+        roughness: 0.1,
+        metalness: 0.9,
+        emissive: 0x997A00,
+        emissiveIntensity: 0.8
+      });
+      const starCore = new THREE.Mesh(coreGeo, coreMat);
+      siriusGroup.add(starCore);
+
+      // Crystal faceted shell around core
+      const crystalGeo = new THREE.OctahedronGeometry(1.8, 0);
+      const crystalMat = new THREE.MeshStandardMaterial({
+        color: 0xF5DC4C,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.55
+      });
+      const starCrystal = new THREE.Mesh(crystalGeo, crystalMat);
+      siriusGroup.add(starCrystal);
+
+      // 8-Pointed Laser Spikes radiating from Sirius Star
+      const spikeGeo = new THREE.BufferGeometry();
+      const spikePositions = [];
+      const spikeLen = 3.6;
+      const dirs = [
+        [1,0,0], [-1,0,0], [0,1,0], [0,-1,0],
+        [0.7,0.7,0], [-0.7,0.7,0], [0.7,-0.7,0], [-0.7,-0.7,0]
+      ];
+      dirs.forEach(d => {
+        spikePositions.push(0, 0, 0);
+        spikePositions.push(d[0] * spikeLen, d[1] * spikeLen, (d[2] || 0) * spikeLen);
+      });
+      spikeGeo.setAttribute('position', new THREE.Float32BufferAttribute(spikePositions, 3));
+      const spikeMat = new THREE.LineBasicMaterial({ color: 0xDBBB13, transparent: true, opacity: 0.85, linewidth: 2 });
+      const starSpikes = new THREE.LineSegments(spikeGeo, spikeMat);
+      siriusGroup.add(starSpikes);
+
+      // =========================================================
+      // B. 3D CONCENTRIC HOLOGRAPHIC HUD GIMBAL RINGS (CYBER CAD)
+      // =========================================================
+      function createHudRing(radius, segments, color, dashRatio, opacity) {
+        const ringGeo = new THREE.BufferGeometry();
+        const positions = [];
+        const step = (Math.PI * 2) / segments;
+        for (let i = 0; i < segments; i++) {
+          if (i % Math.round(1 / dashRatio) !== 0) {
+            const a1 = i * step;
+            const a2 = (i + 0.65) * step;
+            positions.push(Math.cos(a1) * radius, Math.sin(a1) * radius, 0);
+            positions.push(Math.cos(a2) * radius, Math.sin(a2) * radius, 0);
+          }
+        }
+        ringGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+        const ringMat = new THREE.LineSegments(ringGeo, new THREE.LineBasicMaterial({
+          color: color,
+          transparent: true,
+          opacity: opacity
+        }));
+        return ringMat;
+      }
+
+      // Outer Cyan Targeting Ring
+      const ringOuter = createHudRing(8.2, 96, 0x38BDF8, 0.25, 0.45);
+      hudSystem.add(ringOuter);
+
+      // Middle Golden Matrix Hexagonal Ring
+      const hexGeo = new THREE.BufferGeometry();
+      const hexPos = [];
+      const hexR = 6.2;
+      for (let i = 0; i < 6; i++) {
+        const a1 = (i * Math.PI) / 3;
+        const a2 = ((i + 1) * Math.PI) / 3;
+        hexPos.push(Math.cos(a1) * hexR, Math.sin(a1) * hexR, 0);
+        hexPos.push(Math.cos(a2) * hexR, Math.sin(a2) * hexR, 0);
+      }
+      hexGeo.setAttribute('position', new THREE.Float32BufferAttribute(hexPos, 3));
+      const hexRing = new THREE.LineSegments(hexGeo, new THREE.LineBasicMaterial({
+        color: 0xDBBB13,
+        transparent: true,
+        opacity: 0.5
+      }));
+      hudSystem.add(hexRing);
+
+      // Inner Tilted Gyroscopic Orbit Ring
+      const ringInner = createHudRing(4.5, 64, 0x38BDF8, 0.35, 0.6);
+      ringInner.rotation.x = Math.PI / 3;
+      hudSystem.add(ringInner);
+
+      // Crosshair coordinate reticle lines through center
+      const crossGeo = new THREE.BufferGeometry();
+      const crossPos = [
+        -10.5, 0, 0,  -8.5, 0, 0,
+         8.5, 0, 0,   10.5, 0, 0,
+        0, -10.5, 0,  0, -8.5, 0,
+        0,  8.5, 0,   0,  10.5, 0
+      ];
+      crossGeo.setAttribute('position', new THREE.Float32BufferAttribute(crossPos, 3));
+      const crosshairs = new THREE.LineSegments(crossGeo, new THREE.LineBasicMaterial({
+        color: 0x38BDF8,
+        transparent: true,
+        opacity: 0.7
+      }));
+      hudSystem.add(crosshairs);
+
+      // =========================================================
+      // C. CONSTELLATION STARS & LASER TRIANGULATION MATRIX
+      // =========================================================
+      // Exact aesthetic constellation constellation layout around Sirius
+      const constellationStars = [
+        { name: 'Sirius-α',  x: 0,     y: 0,    z: 0,   size: 0.8, color: 0xDBBB13 },
+        { name: 'Mirzam-β',  x: -5.8,  y: 3.2,  z: 2,   size: 0.45, color: 0x38BDF8 },
+        { name: 'Muliphein-γ',x: 4.5,  y: 4.8,  z: -2,  size: 0.4,  color: 0x94A3B8 },
+        { name: 'Wezen-δ',   x: 5.2,   y: -5.4, z: 1.5, size: 0.5,  color: 0xF5DC4C },
+        { name: 'Adhara-ε',  x: -3.5,  y: -6.2, z: -1,  size: 0.45, color: 0x38BDF8 },
+        { name: 'Aludra-η',  x: 8.5,   y: -7.5, z: 2.5, size: 0.4,  color: 0x94A3B8 },
+        { name: 'Furud-ζ',   x: -7.2,  y: -8.8, z: 0.5, size: 0.35, color: 0x38BDF8 },
+        // Architectural truss triangulation nodes
+        { name: 'Truss-1',   x: -2.5,  y: 6.5,  z: -3,  size: 0.3,  color: 0x38BDF8 },
+        { name: 'Truss-2',   x: 7.8,   y: 1.2,  z: 1,   size: 0.35, color: 0xDBBB13 },
+        { name: 'Truss-3',   x: -8.2,  y: -2.2, z: 3,   size: 0.35, color: 0x94A3B8 },
+        { name: 'Truss-4',   x: 1.5,   y: -8.5, z: -2,  size: 0.3,  color: 0x38BDF8 }
+      ];
+
+      const starGroup = new THREE.Group();
+      hudSystem.add(starGroup);
+
+      const starOctaGeo = new THREE.OctahedronGeometry(1, 0);
+      const starMeshes = [];
+
+      const goldMat = new THREE.MeshStandardMaterial({
+        color: 0xDBBB13,
+        roughness: 0.2,
+        metalness: 0.9,
+        emissive: 0x554400
+      });
+      const cyanMat = new THREE.MeshStandardMaterial({
+        color: 0x38BDF8,
+        roughness: 0.2,
+        metalness: 0.8,
+        emissive: 0x075985
+      });
+      const steelMat = new THREE.MeshStandardMaterial({
+        color: 0xE2E8F0,
+        roughness: 0.3,
+        metalness: 0.85
+      });
+
+      const nodeCoords = [];
+
+      constellationStars.forEach(s => {
+        let mat = steelMat;
+        if (s.color === 0xDBBB13) mat = goldMat;
+        else if (s.color === 0x38BDF8) mat = cyanMat;
+
+        const m = new THREE.Mesh(starOctaGeo, mat);
+        m.scale.set(s.size, s.size, s.size);
+        m.position.set(s.x, s.y, s.z);
+        starGroup.add(m);
+        starMeshes.push(m);
+        nodeCoords.push(new THREE.Vector3(s.x, s.y, s.z));
+
+        // Sub-targeting ring around primary constellation stars
+        if (s.size >= 0.45 && (s.x !== 0 || s.y !== 0)) {
+          const subRing = createHudRing(s.size * 2.2, 24, s.color, 0.4, 0.4);
+          subRing.position.set(s.x, s.y, s.z);
+          starGroup.add(subRing);
+        }
+      });
+
+      // Triangulation Laser Lines
+      const laserLinesGeo = new THREE.BufferGeometry();
+      const laserPos = [];
+      const maxConnectDist = 9.8;
+
+      for (let i = 0; i < nodeCoords.length; i++) {
+        for (let j = i + 1; j < nodeCoords.length; j++) {
+          const dist = nodeCoords[i].distanceTo(nodeCoords[j]);
+          if (dist < maxConnectDist) {
+            laserPos.push(nodeCoords[i].x, nodeCoords[i].y, nodeCoords[i].z);
+            laserPos.push(nodeCoords[j].x, nodeCoords[j].y, nodeCoords[j].z);
+          }
+        }
+      }
+
+      laserLinesGeo.setAttribute('position', new THREE.Float32BufferAttribute(laserPos, 3));
+      const laserMat = new THREE.LineSegments(laserLinesGeo, new THREE.LineBasicMaterial({
+        color: 0x38BDF8,
+        transparent: true,
+        opacity: 0.32
+      }));
+      hudSystem.add(laserMat);
+
+      // High-precision Gold CAD Beams directly from Sirius core to neighbor stars
+      const coreBeamsGeo = new THREE.BufferGeometry();
+      const coreBeamsPos = [];
+      nodeCoords.slice(1, 6).forEach(target => {
+        coreBeamsPos.push(0, 0, 0);
+        coreBeamsPos.push(target.x, target.y, target.z);
+      });
+      coreBeamsGeo.setAttribute('position', new THREE.Float32BufferAttribute(coreBeamsPos, 3));
+      const coreBeams = new THREE.LineSegments(coreBeamsGeo, new THREE.LineBasicMaterial({
+        color: 0xDBBB13,
+        transparent: true,
+        opacity: 0.55
+      }));
+      hudSystem.add(coreBeams);
+
+      // =========================================================
+      // D. ENERGY PACKETS MOVING ALONG LASER BEAMS
+      // =========================================================
+      const packetCount = 20;
+      const packetGeo = new THREE.BufferGeometry();
+      const packetPos = new Float32Array(packetCount * 3);
+      packetGeo.setAttribute('position', new THREE.BufferAttribute(packetPos, 3));
+      const packetMat = new THREE.PointsMaterial({
+        color: 0xF5DC4C,
+        size: 0.38,
+        transparent: true,
+        opacity: 0.9
+      });
+      const packets = new THREE.Points(packetGeo, packetMat);
+      hudSystem.add(packets);
+
+      // Floating ambient quantum starlight particles
+      const starDustCount = 140;
+      const dustGeo = new THREE.BufferGeometry();
+      const dustPos = new Float32Array(starDustCount * 3);
+      for (let i = 0; i < starDustCount * 3; i += 3) {
+        dustPos[i] = (Math.random() - 0.5) * 44;
+        dustPos[i + 1] = (Math.random() - 0.5) * 32;
+        dustPos[i + 2] = (Math.random() - 0.5) * 22;
+      }
+      dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+      const dustMat = new THREE.PointsMaterial({
+        color: 0x38BDF8,
+        size: 0.16,
+        transparent: true,
+        opacity: 0.45
+      });
+      const starDust = new THREE.Points(dustGeo, dustMat);
+      hudSystem.add(starDust);
+
+      // =========================================================
+      // E. MOUSE & GYROSCOPE INTERACTION
+      // =========================================================
+      let mouseX = 0;
+      let mouseY = 0;
+      let targetX = 0;
+      let targetY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        const halfX = window.innerWidth / 2;
+        const halfY = window.innerHeight / 2;
+        targetX = (e.clientX - halfX) * 0.0006;
+        targetY = (e.clientY - halfY) * 0.0006;
+      });
+
+      window.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          const halfX = window.innerWidth / 2;
+          const halfY = window.innerHeight / 2;
+          targetX = (e.touches[0].clientX - halfX) * 0.0008;
+          targetY = (e.touches[0].clientY - halfY) * 0.0008;
+        }
+      }, { passive: true });
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      // =========================================================
+      // F. ANIMATION LOOP WITH HIGH-TECH ROTATIONS
+      // =========================================================
+      let clock = new THREE.Clock();
+
+      function animate() {
+        requestAnimationFrame(animate);
+        const elapsed = clock.getElapsedTime();
+
+        // Parallax easing
+        mouseX += (targetX - mouseX) * 0.04;
+        mouseY += (targetY - mouseY) * 0.04;
+
+        // Optimal position based on screen width:
+        // On widescreen (>1400px), shift right to x = 8.5 and up to y = 1.2
+        // On laptop/desktop (1024-1400px), x = 7.0, y = 1.0
+        // On tablet (768-1024px), x = 3.5, y = 1.5
+        // On mobile (<768px), centered with slight upward offset
+        const w = window.innerWidth;
+        let basePosX = 0;
+        let basePosY = 0;
+        if (w >= 1440) {
+          basePosX = 8.6;
+          basePosY = 1.5;
+        } else if (w >= 1024) {
+          basePosX = 7.2;
+          basePosY = 1.2;
+        } else if (w >= 768) {
+          basePosX = 3.8;
+          basePosY = 1.8;
+        } else {
+          basePosX = 0;
+          basePosY = 2.0;
+        }
+
+        hudSystem.position.x = basePosX;
+        hudSystem.position.y = basePosY + Math.sin(elapsed * 0.4) * 0.35;
+
+        // Interactive 3D tilt with inertia
+        hudSystem.rotation.y = elapsed * 0.02 + mouseX * 2.2;
+        hudSystem.rotation.x = Math.sin(elapsed * 0.03) * 0.12 + mouseY * 1.8;
+
+        // Counter-rotating HUD telemetry rings (CAD Gyroscope effect)
+        ringOuter.rotation.z = elapsed * 0.06;
+        hexRing.rotation.z = -elapsed * 0.04;
+        ringInner.rotation.z = elapsed * 0.09;
+        starSpikes.rotation.z = elapsed * 0.08;
+        starCrystal.rotation.y = elapsed * 0.3;
+        starCrystal.rotation.x = elapsed * 0.15;
+
+        // Sirius Star breathing pulse
+        const corePulse = 1 + Math.sin(elapsed * 2.2) * 0.08;
+        starCore.scale.set(corePulse, corePulse, corePulse);
+
+        // Rotate individual faceted star nodes
+        starMeshes.forEach((m, idx) => {
+          m.rotation.y += 0.015 * ((idx % 2 === 0) ? 1 : -1);
+          m.rotation.x += 0.01;
+        });
+
+        // Animate energy packets running along beams
+        const pArray = packetGeo.attributes.position.array;
+        for (let k = 0; k < packetCount; k++) {
+          const tIdx = (k % 5) + 1;
+          const target = nodeCoords[tIdx];
+          const progress = ((elapsed * 0.6 + (k / packetCount)) % 1);
+          pArray[k * 3]     = target.x * progress;
+          pArray[k * 3 + 1] = target.y * progress;
+          pArray[k * 3 + 2] = target.z * progress;
+        }
+        packetGeo.attributes.position.needsUpdate = true;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+    })();
+  </script>
+</body>
+</html>
