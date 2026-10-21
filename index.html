@@ -2152,18 +2152,7 @@
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- SUCCESS TOAST NOTIFICATION -->
-  <!-- ========================================================================= -->
-  <div id="toast-success" class="fixed bottom-6 right-6 z-50 hidden max-w-md p-4 rounded-2xl bg-sirius-surface border border-emerald-500/50 shadow-2xl flex items-start gap-3 animate-bounce">
-    <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-      ✓
-    </div>
-    <div>
-      <div class="text-sm font-bold text-white">Заявка успешно отправлена!</div>
-      <div class="text-xs text-slate-300 mt-0.5">Специалист СК «Сириус» свяжется с вами в течение нескольких минут.</div>
-    </div>
-  </div>
+
 
   <!-- ========================================================================= -->
   <!-- JAVASCRIPT: LOGIC, CALCULATOR, VIEW SWITCHER & THREE.JS 3D CONSTELLATION -->
@@ -2673,7 +2662,17 @@
         submitBtn.innerHTML = originalBtnText;
       }
 
-      showSuccessToast();
+      // Open the futuristic animated modal success window
+      openOrderModal('Заявка со страницы контактов');
+      const orderNum = '#SR-' + Math.floor(1000 + Math.random() * 9000);
+      const idEl = document.getElementById('modal-success-id');
+      if (idEl) idEl.textContent = orderNum;
+      document.getElementById('modal-header-block').classList.add('hidden');
+      document.getElementById('modal-order-form').classList.add('hidden');
+      document.getElementById('modal-success-state').classList.remove('hidden');
+      playSciFiTelemetrySound();
+      triggerConstellationWarp('modal-constellation-canvas');
+
       e.target.reset();
     }
 
@@ -2716,16 +2715,7 @@
       // Trigger effects
       playSciFiTelemetrySound();
       triggerConstellationWarp('modal-constellation-canvas');
-      showSuccessToast();
       e.target.reset();
-    }
-
-    function showSuccessToast() {
-      const toast = document.getElementById('toast-success');
-      toast.classList.remove('hidden');
-      setTimeout(() => {
-        toast.classList.add('hidden');
-      }, 5000);
     }
 
     // -------------------------------------------------------------
