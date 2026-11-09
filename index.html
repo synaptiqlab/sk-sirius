@@ -2390,10 +2390,7 @@
   <!-- 10. JAVASCRIPT: LOGIC, DYNAMIC MODE SWITCHER & ENGINE -->
   <!-- ========================================================================= -->
   <script>
-    const TELEGRAM_CONFIG = {
-      botToken: '8841016906:AAHAYvnCBczKdQPgmcdo07qnQx6EVbkkjDw',
-      chatId: '-1004329049893' // Группа «Сириус Замеры»
-    };
+    const SIRIUS_API_URL = 'https://sirius-order-bot.dandeliondnd-vn.workers.dev/api/lead';
 
     // -------------------------------------------------------------
     // DYNAMIC SITE MODE SWITCHER (B2C vs B2B)
@@ -2692,27 +2689,17 @@
 
       try {
         const file = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+        const fd = new FormData();
+        fd.append('text', text);
         if (file) {
-          const isImage = file.type.startsWith('image/');
-          const url = `https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/${isImage ? 'sendPhoto' : 'sendDocument'}`;
-          const fd = new FormData();
-          fd.append('chat_id', TELEGRAM_CONFIG.chatId);
-          fd.append(isImage ? 'photo' : 'document', file);
-          fd.append('caption', text);
-          fd.append('parse_mode', 'HTML');
-          const res = await fetch(url, { method: 'POST', body: fd });
-          const d = await res.json();
-          return d.ok;
-        } else {
-          const url = `https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/sendMessage`;
-          const res = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: TELEGRAM_CONFIG.chatId, text: text, parse_mode: 'HTML' })
-          });
-          const d = await res.json();
-          return d.ok;
+          fd.append('file', file);
         }
+        const res = await fetch(SIRIUS_API_URL, {
+          method: 'POST',
+          body: fd
+        });
+        const d = await res.json().catch(() => ({ success: false }));
+        return !!d.success;
       } catch (e) {
         console.error(e);
         return false;
