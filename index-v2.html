@@ -2672,8 +2672,6 @@
     }
 
     async function sendToTelegramWithFile(leadData, fileInput = null) {
-      if (!TELEGRAM_CONFIG.botToken || !TELEGRAM_CONFIG.chatId) return false;
-
       const text = `🔥 <b>НОВАЯ ЗАЯВКА СК СИРИУС</b>
 
 ` +
