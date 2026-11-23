@@ -31,6 +31,20 @@
   <link rel="icon" type="image/jpeg" sizes="32x32" href="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/e1c6bc3d-5657-4753-9837-37ae6d04fb87/e1c6bc3d-5657-4753-9837-37ae6d04fb87-14968694.jpeg">
   <link rel="apple-touch-icon" href="https://90f1661d-2ff4-4f29-b07c-0e47453ca691.selstorage.ru/site456806/e1c6bc3d-5657-4753-9837-37ae6d04fb87/e1c6bc3d-5657-4753-9837-37ae6d04fb87-14968694.jpeg">
 
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+      ym(46139187, 'init', {webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/46139187" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2159,6 +2173,7 @@
             </p>
 
             <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <input type="text" name="bot_trap" class="hidden" style="display:none !important;" tabindex="-1" autocomplete="off" />
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Ваше имя *</label>
@@ -2305,6 +2320,7 @@
       </div>
 
       <form id="modal-order-form" onsubmit="handleModalSubmit(event)" class="space-y-4">
+        <input type="text" name="bot_trap" class="hidden" style="display:none !important;" tabindex="-1" autocomplete="off" />
         <input type="hidden" id="modal-product-name" value="Заявка с сайта">
 
         <div>
@@ -2689,6 +2705,9 @@
         const file = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
         const fd = new FormData();
         fd.append('text', text);
+        if (leadData.bot_trap) {
+          fd.append('bot_trap', leadData.bot_trap);
+        }
         if (file) {
           fd.append('file', file);
         }
@@ -2716,8 +2735,13 @@
         phone: document.getElementById('cf-phone').value,
         address: document.getElementById('cf-address').value,
         message: document.getElementById('cf-message').value,
-        product: 'Форма на странице контактов'
+        product: 'Форма на странице контактов',
+        bot_trap: e.target.querySelector('input[name="bot_trap"]')?.value || ''
       });
+
+      if (typeof ym === 'function') {
+        ym(46139187, 'reachGoal', 'lead_form_success');
+      }
 
       btn.disabled = false;
       btn.innerHTML = orig;
@@ -2739,8 +2763,13 @@
         name: document.getElementById('modal-name').value,
         phone: document.getElementById('modal-phone').value,
         address: document.getElementById('modal-address').value,
-        product: document.getElementById('modal-product-name').value
+        product: document.getElementById('modal-product-name').value,
+        bot_trap: e.target.querySelector('input[name="bot_trap"]')?.value || ''
       }, document.getElementById('modal-file'));
+
+      if (typeof ym === 'function') {
+        ym(46139187, 'reachGoal', 'lead_form_success');
+      }
 
       btn.disabled = false;
       btn.innerHTML = orig;
@@ -2749,6 +2778,16 @@
       document.getElementById('modal-success-state').classList.remove('hidden');
       e.target.reset();
     }
+
+    // -------------------------------------------------------------
+    // YANDEX.METRIKA GOAL TRACKING (PHONE CLICKS)
+    // -------------------------------------------------------------
+    document.addEventListener('click', function(e) {
+      const telLink = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+      if (telLink && typeof ym === 'function') {
+        ym(46139187, 'reachGoal', 'click_phone');
+      }
+    });
 
     // -------------------------------------------------------------
     // TIG WELDING PLASMA CORE & INTERACTIVE ARC TORCH ENGINE
