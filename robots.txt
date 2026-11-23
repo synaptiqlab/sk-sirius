@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ск-сириус.рф/sitemap.xml
+Host: https://ск-сириус.рф
